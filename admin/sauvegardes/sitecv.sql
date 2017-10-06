@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 06 oct. 2017 à 14:34
+-- Généré le :  ven. 06 oct. 2017 à 16:17
 -- Version du serveur :  10.1.22-MariaDB
 -- Version de PHP :  7.1.4
 
@@ -30,6 +30,7 @@ USE `sitecv`;
 -- Structure de la table `t_utilisateurs`
 --
 
+DROP TABLE IF EXISTS `t_utilisateurs`;
 CREATE TABLE `t_utilisateurs` (
   `id_utilisateur` int(3) NOT NULL,
   `prenom` varchar(30) COLLATE utf8_german2_ci NOT NULL,
