@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 06 oct. 2017 à 16:17
+-- Généré le :  sam. 07 oct. 2017 à 09:02
 -- Version du serveur :  10.1.22-MariaDB
 -- Version de PHP :  7.1.4
 
@@ -21,8 +21,90 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `sitecv`
 --
-CREATE DATABASE IF NOT EXISTS `sitecv` DEFAULT CHARACTER SET utf8 COLLATE utf8_german2_ci;
-USE `sitecv`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `titre_cv`
+--
+
+CREATE TABLE `titre_cv` (
+  `id_titre_cv` int(3) NOT NULL,
+  `titre_cv` text COLLATE utf8_german2_ci NOT NULL,
+  `accroche` text COLLATE utf8_german2_ci NOT NULL,
+  `logo` varchar(20) COLLATE utf8_german2_ci NOT NULL,
+  `utilisateur_id` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `t_competences`
+--
+
+CREATE TABLE `t_competences` (
+  `id_competence` int(3) NOT NULL,
+  `competence` varchar(30) COLLATE utf8_german2_ci NOT NULL,
+  `c_niveau` int(3) NOT NULL,
+  `utilisateur_id` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `t_experiences`
+--
+
+CREATE TABLE `t_experiences` (
+  `id_experience` int(3) NOT NULL,
+  `e_titre` varchar(50) COLLATE utf8_german2_ci NOT NULL,
+  `e_soustitre` varchar(50) COLLATE utf8_german2_ci NOT NULL,
+  `e_dates` varchar(50) COLLATE utf8_german2_ci NOT NULL,
+  `e_description` text COLLATE utf8_german2_ci NOT NULL,
+  `utilisateur_id` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `t_formations`
+--
+
+CREATE TABLE `t_formations` (
+  `id_formation` int(3) NOT NULL,
+  `f_titre` varchar(50) COLLATE utf8_german2_ci NOT NULL,
+  `f_soustitre` varchar(50) COLLATE utf8_german2_ci NOT NULL,
+  `f_dates` varchar(50) COLLATE utf8_german2_ci NOT NULL,
+  `f_description` text COLLATE utf8_german2_ci NOT NULL,
+  `utilisateur_id` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `t_loisirs`
+--
+
+CREATE TABLE `t_loisirs` (
+  `id_loisir` int(3) NOT NULL,
+  `loisir` varchar(30) COLLATE utf8_german2_ci NOT NULL,
+  `utilisateur_id` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `t_realisations`
+--
+
+CREATE TABLE `t_realisations` (
+  `id_realisation` int(3) NOT NULL,
+  `r_titre` varchar(50) COLLATE utf8_german2_ci NOT NULL,
+  `r_soustitre` varchar(50) COLLATE utf8_german2_ci NOT NULL,
+  `r_dates` varchar(50) COLLATE utf8_german2_ci NOT NULL,
+  `r_description` text COLLATE utf8_german2_ci NOT NULL,
+  `utilisateur_id` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 -- --------------------------------------------------------
 
@@ -30,7 +112,6 @@ USE `sitecv`;
 -- Structure de la table `t_utilisateurs`
 --
 
-DROP TABLE IF EXISTS `t_utilisateurs`;
 CREATE TABLE `t_utilisateurs` (
   `id_utilisateur` int(3) NOT NULL,
   `prenom` varchar(30) COLLATE utf8_german2_ci NOT NULL,
@@ -63,6 +144,42 @@ INSERT INTO `t_utilisateurs` (`id_utilisateur`, `prenom`, `nom`, `email`, `telep
 --
 
 --
+-- Index pour la table `titre_cv`
+--
+ALTER TABLE `titre_cv`
+  ADD PRIMARY KEY (`id_titre_cv`);
+
+--
+-- Index pour la table `t_competences`
+--
+ALTER TABLE `t_competences`
+  ADD PRIMARY KEY (`id_competence`);
+
+--
+-- Index pour la table `t_experiences`
+--
+ALTER TABLE `t_experiences`
+  ADD PRIMARY KEY (`id_experience`);
+
+--
+-- Index pour la table `t_formations`
+--
+ALTER TABLE `t_formations`
+  ADD PRIMARY KEY (`id_formation`);
+
+--
+-- Index pour la table `t_loisirs`
+--
+ALTER TABLE `t_loisirs`
+  ADD PRIMARY KEY (`id_loisir`);
+
+--
+-- Index pour la table `t_realisations`
+--
+ALTER TABLE `t_realisations`
+  ADD PRIMARY KEY (`id_realisation`);
+
+--
 -- Index pour la table `t_utilisateurs`
 --
 ALTER TABLE `t_utilisateurs`
@@ -72,6 +189,36 @@ ALTER TABLE `t_utilisateurs`
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
+--
+-- AUTO_INCREMENT pour la table `titre_cv`
+--
+ALTER TABLE `titre_cv`
+  MODIFY `id_titre_cv` int(3) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `t_competences`
+--
+ALTER TABLE `t_competences`
+  MODIFY `id_competence` int(3) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `t_experiences`
+--
+ALTER TABLE `t_experiences`
+  MODIFY `id_experience` int(3) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `t_formations`
+--
+ALTER TABLE `t_formations`
+  MODIFY `id_formation` int(3) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `t_loisirs`
+--
+ALTER TABLE `t_loisirs`
+  MODIFY `id_loisir` int(3) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `t_realisations`
+--
+ALTER TABLE `t_realisations`
+  MODIFY `id_realisation` int(3) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `t_utilisateurs`
 --
