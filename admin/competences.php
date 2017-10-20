@@ -41,23 +41,23 @@ include('inc/nav.inc.php');
     </head>
 </head>
 <body>
-    <div class="container">
-        <div class="page-header well">
-            <h1>Admin <?= $ligne_utilisateur['prenom']?></h1>
+    <div class="container"><!-- debut du container bootrap-->
+        <div class="page-header well"><!-- encadrement du tableau-->
+            <h1>Admin <?= $ligne_utilisateur['prenom']?></h1><!-- insertion de mon preénom en php-->
             <p>Texte</p>
         </div>
 
         <?php
-        $resultat = $pdoCV -> prepare("SELECT * FROM t_competences WHERE utilisateur_id = '1'");
-        $resultat -> execute();
+        $resultat = $pdoCV -> prepare("SELECT * FROM t_competences WHERE utilisateur_id = '1'");// requete de selection de la table t_compérences ou l'id est == a 1 donc corinne
+        $resultat -> execute();// execution de la requete
         $nbr_competences =  $resultat -> rowCount();
         ?>
         <h2> Les compétences</h2>
-        <div class="row">
-            <div class="col-md-8">
+        <div class="row"><!-- déclaration de la  grande colonne-->
+            <div class="col-md-8"><!-- division de la collone avec un un col md 8 qui correspond a 60% de notre container-->
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><?= $nbr_competences; ?> compétences</h3>
+                        <h3 class="panel-title"><?= $nbr_competences; ?> compétences</h3><!--$_nombres de compétences resutats de notre requete -->
                     </div>
 
                     <div class="panel-body">
@@ -120,7 +120,7 @@ include('inc/nav.inc.php');
                             </div>
                         </div>
                     </div>
-                </div>
+                </div><!-- fin du container >
 
 </body>
 </html>
