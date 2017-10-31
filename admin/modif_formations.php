@@ -41,7 +41,7 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
     <head>
         <meta charset="utf-8">
         <?php
-        $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
+        $resultat = $pdo -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
         $ligne_utilisateur = $resultat -> fetch();
         ?>
         <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
@@ -55,7 +55,7 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
     </head>
     <body>
         <?php
-        $resultat = $pdoCV -> prepare("SELECT * FROM t_formations WHERE utilisateur_id ='1'");
+        $resultat = $pdo -> prepare("SELECT * FROM t_formations WHERE utilisateur_id ='1'");
         $resultat->execute();
         $nbr_formations = $resultat->rowCount();
 
@@ -95,7 +95,7 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
                             <td><?= $ligne_formation['f_dates'];?></td>
                             <td><?= $ligne_formation['f_description'];?></td>
                             <td><a href="formations.php?id_formation=<?= $ligne_formation['id_formation'];?>"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>
-                            <td><a href="modif_formations.php?id_formation=<?= $ligne_formation['id_formation'];?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>
+                            <td><a href="modif_formation.php?id_formation=<?= $ligne_formation['id_formation'];?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>
                     </tr>
                         <?php } ?>
                     </table>

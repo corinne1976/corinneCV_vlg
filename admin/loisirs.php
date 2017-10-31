@@ -6,10 +6,10 @@ $ligne_utilisateur = $resultat -> fetch();
 // Gestion des contenus de la BDD compétence
 
 // Insertion d'une compétence
-if(isset($_POST['loisir'])){ // Si on a posté une nouvelle compétence
-    if(!empty($_POST['loisir'])){ // Si compétence n'est pas vide
-        $loisir = addslashes($_POST['loisir']);
-        $pdoCV -> exec("INSERT INTO t_loisirs (id_loisir, loisir, utilisateur_id) VALUES (NULL, '$loisir', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+if(isset($_POST['f_loisir'])){ // Si on a posté une nouvelle compétence
+    if(!empty($_POST['f_loisir'])){ // Si compétence n'est pas vide
+        $loisir = addslashes($_POST['t_loisir']);
+        $pdoCV -> exec("INSERT INTO t_loisirs  VALUES (NULL, '$loisir', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
         header("location: loisirs.php");
         exit();
 
@@ -60,7 +60,7 @@ include('inc/nav.inc.php');
             <tr>
             <?php while($ligne_loisir = $resultat -> fetch(PDO::FETCH_ASSOC) ) {?>
                <td><?php echo $ligne_loisir['loisir'] ;?></td>
-               <td><a href="modif_loisir.php?id_loisir=<?= $ligne_loisir['id_loisir']; ?>">modifier</a></td>
+               <td><a href="modif_loisirs.php?id_loisir=<?= $ligne_loisir['id_loisir']; ?>">modifier</a></td>
                <td><a href="loisirs.php?id_loisir=<?= $ligne_loisir['id_loisir']; ?>">supprimer</a></td>
            </tr>
             <?php } ?>

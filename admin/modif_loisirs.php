@@ -38,7 +38,7 @@ include('inc/nav.inc.php');
         <p>Texte</p>
         <hr>
 
-        <h2>Modification d'une compétence</h2>
+        <h2>Modification d'un loisir</h2>
         <p><?= $ligne_loisir['loisir'] ?></p>
 
         <form action="#" method="post">
