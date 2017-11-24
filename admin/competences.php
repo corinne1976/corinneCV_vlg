@@ -1,6 +1,20 @@
 <?php
+session_start();// à mettre dans toutes les pages de l'Admin
 require('connexion.php');
-$resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
+
+if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
+
+    $id_utilisateur = $_SESSION['id_utilisateur'];
+    $prenom = $_SESSION['prenom'];
+    $nom = $_SESSION['nom'];
+
+    // echo $_SESSION['connexion'];
+    // var-dump( $_SESSION);
+
+}else {
+    header('location:authentification.php');
+}
+$resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
 $ligne_utilisateur = $resultat -> fetch(PDO::FETCH_ASSOC);
 
 // Gestion des contenus de la BDD compétence
@@ -10,7 +24,7 @@ if(isset($_POST['competence'])){ // Si on a posté une nouvelle compétence
     if(!empty($_POST['competence']) && !empty($_POST['c_niveau'])){ // Si compétence n'est pas vide
         $competence = addslashes($_POST['competence']);
         $c_niveau = addslashes($_POST['c_niveau']);
-        $pdoCV -> exec("INSERT INTO t_competences (id_competence, competence, c_niveau, utilisateur_id) VALUES (NULL, '$competence', '$c_niveau', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+        $pdoCV -> exec("INSERT INTO t_competences (id_competence, competence, c_niveau, utilisateur_id) VALUES (NULL, '$competence', '$c_niveau', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
         header("location: competences.php");
         exit();
 
@@ -48,7 +62,7 @@ include('inc/nav.inc.php');
         </div>
 
         <?php
-        $resultat = $pdoCV -> prepare("SELECT * FROM t_competences WHERE utilisateur_id = '1'");// requete de selection de la table t_compérences ou l'id est == a 1 donc corinne
+        $resultat = $pdoCV -> prepare("SELECT * FROM t_competences WHERE utilisateur_id = '$id_utilisateur'");// requete de selection de la table t_compérences ou l'id est == a 1 donc corinne
         $resultat -> execute();// execution de la requete
         $nbr_competences =  $resultat -> rowCount();
         ?>

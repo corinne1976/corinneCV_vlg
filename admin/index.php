@@ -1,98 +1,56 @@
 <?php
 require('connexion.php');
-$resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
-$ligne_utilisateur = $resultat -> fetch(PDO::FETCH_ASSOC);
 
-include('inc/header.inc.php');
-include('inc/nav.inc.php');
+session_start();// à mettre dans toutes les pages de l'Admin
+
+if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
+
+    $id_utilisateur = $_SESSION['id_utilisateur'];
+    $prenom = $_SESSION['prenom'];
+    $nom = $_SESSION['nom'];
+
+    // echo $_SESSION['connexion'];
+    // var-dump( $_SESSION);
+
+}else {
+    header('location:authentification.php');
+}
 ?>
 
-<?php
-$resultat = $pdoCV -> query("SELECT * FROM t_competences");
-$ligne_competence = $resultat -> fetch(PDO::FETCH_ASSOC);
-?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <?php
+    $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
+    $ligne_utilisateur = $resultat -> fetch();
+    ?>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title >Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
+    <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans" rel="stylesheet">
 
-<div class="container">
-    <div class="page-header well">
-        <h1>Admin <?= $ligne_utilisateur['prenom']?></h1>
-        <h2>Accueil Admin</h2>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">il y a 9 compétences</h3>
-                </div>
-
-                <div class="panel-body">
-
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">Compétences</th>
-                                <th scope="col">Niveau en %</th>
-                                <th scope="col">Supression</th>
-                                <th scope="col">Modification</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">coucou</th>
-                                <td>100</td>
-                                <td><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </button></td>
-                                <td><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">toto</th>
-                                <td>100</td>
-                                <td><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </button></td>
-                                <td><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                            <tr>
-                                <th scope="row">Vélo</th>
-                                <td>80</td>
-                                <td><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                    </button></td>
-                                    <td><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="col-md-4">
-                <div class="well">
-
-                    <div class="panel-info">
-                        <div class="panel-heading">
-                            <p>Insersion d'une compétence</p>
-                        </div>
-                        <div class="panel-body">
-
-                            <div class="form-group">
-                                <form type="#" name="competence" method="post">
-                                    <div class="form-group">
-                                        <label for="competence">Competences</label>
-                                        <input type="text" name="competences"  id="competences"placeholder="inserer une compétence" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="c_niveau">Niveau</label>
-                                        <input type="text" name="c_niveau"  id="c_niveau" placeholder="Insérer un niveau" class="form-control">
-                                    </div>
-                                    <button type="submit" class="btn btn-info btn-block">Inscrire</button>
-
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
 
 
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
-    <?php include('inc/footer.inc.php'); ?>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <h1>Admin : <?= ($ligne_utilisateur['prenom']); ?></h1>
+    <hr>
+    <h2 class="col-xs-12 col-sm-6 col-md-offset-5 col-sm-offset-1">Accueil admin</h2>
+    <img src="img/stock.jpg" alt=""  class="col-xs-12 col-sm-6 col-md-offset-3 col-sm-offset-1">
+</body>
+</html>
+<?php include('inc/footer.inc.php'); ?>
