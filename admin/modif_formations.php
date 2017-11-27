@@ -1,6 +1,19 @@
 <?php
-require('connexion.php.');
-require('inc/init.inc.php.');
+session_start();// à mettre dans toutes les pages de l'Admin
+require('connexion.php');
+
+if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
+
+    $id_utilisateur = $_SESSION['id_utilisateur'];
+    $prenom = $_SESSION['prenom'];
+    $nom = $_SESSION['nom'];
+
+    // echo $_SESSION['connexion'];
+    // var-dump( $_SESSION);
+
+}else {
+    header('location:authentification.php');
+}
 // mise à jour d'une compétence
 if (isset($_POST['f_titre'])) { // par le nom du premier input
     $id_formation = $_POST['id_formation'];
@@ -23,7 +36,7 @@ $ligne_formation = $resultat->fetch();
     <head>
         <meta charset="utf-8">
         <?php
-        $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
+        $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
         $ligne_utilisateur = $resultat -> fetch();
         ?>
         <title>Admin : <?= $ligne_utilisateur['pseudo']; ?></title>

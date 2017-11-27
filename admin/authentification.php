@@ -4,6 +4,21 @@ require('connexion.php'); ?>
 session_start();// à mettre dans toutes les pages de l'admin
 $msg_authentification='';// on initialise la variable en cas d'erreur
 
+
+// pour se deconnecter de l'Admin
+if (isset($_GET['quitter'])) {// on recupere avec le get depuil l'url.
+        $_SESSION['connexion']='';// on vide les variuable de session , les information sont vidées
+        $_SESSION['id_utilisateur']='';// on vide les variuable de session , les information sont vidées
+        $_SESSION['prenom']='';// on vide les variuable de session , les information sont vidées
+        $_SESSION['enom']='';// on vide les variuable de session , les information sont vidées
+
+        unset($_session['connexion']);// unset detruit les variables spécifiées
+        session_destroy();
+        header('location:authentification.php');
+
+
+}// ferme le if isset
+
 if (isset($_POST['connexion'])) {// on envoie le form avec le name du button on a cliquer dessus
 $email = addslashes($_POST['email']);// verification ajout d'un slashes
 $mdp = addslashes($_POST['mdp']);

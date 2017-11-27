@@ -2,7 +2,7 @@
 </section>
 <footer class="footer">
       <div class="container">
-        <p class="text-muted text-center"><?= $ligne_utilisateur['prenom']?></p>
+        <p class="text-muted text-center"></p>
       </div>
     </footer>
 

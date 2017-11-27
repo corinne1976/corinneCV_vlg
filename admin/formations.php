@@ -29,7 +29,7 @@ if (isset($_POST['f_titre'])) { // Si on a posté une nouvelle form.
       $f_dates = addslashes($_POST['f_dates']);
       $f_description = addslashes($_POST['f_description']);
 
-      $pdoCV -> exec("INSERT INTO t_formations VALUES (NULL, '$f_titre', '$f_soustitre', '$f_dates', '$f_description', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+      $pdoCV -> exec("INSERT INTO t_formations VALUES (NULL, '$f_titre', '$f_soustitre', '$f_dates', '$f_description', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
       header("location: formations.php");
       exit();
     }
@@ -55,7 +55,7 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
     <head>
         <meta charset="utf-8">
         <?php
-        $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
+        $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
         $ligne_utilisateur = $resultat -> fetch();
         ?>
         <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
@@ -69,7 +69,7 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
     </head>
     <body>
         <?php
-        $resultat = $pdoCV -> prepare("SELECT * FROM t_formations WHERE utilisateur_id ='1'");
+        $resultat = $pdoCV -> prepare("SELECT * FROM t_formations WHERE utilisateur_id ='$id_utilisateur'");
         $resultat->execute();
         $nbr_formations = $resultat->rowCount();
 

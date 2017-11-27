@@ -23,7 +23,7 @@ $msg = '';
 if (isset($_POST['loisir'])) { // Si on a posté une nouvelle comp.
     if (!empty($_POST['loisir'])) { // Si compétence n'est pas vide
         $loisir = addslashes($_POST['loisir']);
-        $pdoCV -> exec("INSERT INTO t_loisirs VALUES (NULL, '$loisir', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+        $pdoCV -> exec("INSERT INTO t_loisirs VALUES (NULL, '$loisir', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
         header("location: loisirs.php");
         exit();
     } // ferme le if n'est pas vide
@@ -45,7 +45,7 @@ if (isset($_GET['id_loisir'])) { // on récupère la comp. par son id dans l'url
     <head>
         <meta charset="utf-8">
         <?php
-        $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
+        $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
         $ligne_utilisateur = $resultat -> fetch();
         ?>
         <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
@@ -59,7 +59,7 @@ if (isset($_GET['id_loisir'])) { // on récupère la comp. par son id dans l'url
     </head>
     <body>
         <?php
-        $resultat = $pdoCV -> prepare("SELECT * FROM t_loisirs WHERE utilisateur_id ='1'");
+        $resultat = $pdoCV -> prepare("SELECT * FROM t_loisirs WHERE utilisateur_id ='$id_utilisateur'");
         $resultat->execute();
         $nbr_loisirs = $resultat->rowCount();
         // $ligne_competence = $resultat -> fetch();
@@ -92,7 +92,7 @@ if (isset($_GET['id_loisir'])) { // on récupère la comp. par son id dans l'url
                         <?php while ($ligne_loisir = $resultat -> fetch()) { ?>
                             <td><?= $ligne_loisir['loisir'];?></td>
                             <td><a href="loisirs.php?id_loisir=<?= $ligne_loisir['id_loisir'];?>"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a></td>
-                            <td><a href="modif_loisir.php?id_loisir=<?= $ligne_loisir['id_loisir'];?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>
+                            <td><a href="modif_loisirs.php?id_loisir=<?= $ligne_loisir['id_loisir'];?>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a></td>
                     </tr>
                         <?php } ?>
                     </table>

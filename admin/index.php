@@ -15,6 +15,10 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
 }else {
     header('location:authentification.php');
 }
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +33,7 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title >Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
-    <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -37,6 +41,7 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
 
 
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,11 +51,16 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
     <![endif]-->
 </head>
 <body>
+    <?php include('inc/nav.inc.php'); ?>
+    <div class="container">
 
     <h1>Admin : <?= ($ligne_utilisateur['prenom']); ?></h1>
-    <hr>
-    <h2 class="col-xs-12 col-sm-6 col-md-offset-5 col-sm-offset-1">Accueil admin</h2>
-    <img src="img/stock.jpg" alt=""  class="col-xs-12 col-sm-6 col-md-offset-3 col-sm-offset-1">
+    <div class="col-xs-12 col-sm-6 col-md-offset-3 col-sm-offset-3">
+        <h2 class="">Accueil admin</h2>
+    </div>
+    <img  src="img/torrent.jpg" alt=""  class="col-xs-6 col-sm-6 col-md-offset-3 col-md-4 col-sm-offset-3 img-responsive">
+</div>
+
 </body>
 </html>
 <?php include('inc/footer.inc.php'); ?>
