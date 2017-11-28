@@ -56,7 +56,7 @@ $nbr_utilisateurs = $sql->rowCount();// on compte si il est dans la table, le co
 
 
  <body>
-   <h1>Admin : S'authentifier</h1>
+   <h1></h1>
    <hr>
    <!-- debut du formulaire d'authentification à l'admin -->
    <form action="authentification.php" method="post">
@@ -68,5 +68,8 @@ $nbr_utilisateurs = $sql->rowCount();// on compte si il est dans la table, le co
      <br>
      <button name="connexion" type="submit">Connexion à votre admin.</button>
    </form>
+
+
  </body>
+
  </html>

@@ -58,7 +58,6 @@ include('inc/nav.inc.php');
     <div class="container"><!-- debut du container bootrap-->
         <div class="page-header well"><!-- encadrement du tableau-->
             <h1>Admin <?= $ligne_utilisateur['prenom']?></h1><!-- insertion de mon preénom en php-->
-            <p>Texte</p>
         </div>
 
         <?php

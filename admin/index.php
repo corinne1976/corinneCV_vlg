@@ -54,11 +54,11 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
     <?php include('inc/nav.inc.php'); ?>
     <div class="container">
 
-    <h1>Admin : <?= ($ligne_utilisateur['prenom']); ?></h1>
+    <h1>Admin : <?= ($ligne_utilisateur['prenom']); ?></h1><br>
     <div class="col-xs-12 col-sm-6 col-md-offset-3 col-sm-offset-3">
-        <h2 class="">Accueil admin</h2>
+
     </div>
-    <img  src="img/torrent.jpg" alt=""  class="col-xs-6 col-sm-6 col-md-offset-3 col-md-4 col-sm-offset-3 img-responsive">
+    <img src="img/paysage3.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%" height="236">
 </div>
 
 </body>
