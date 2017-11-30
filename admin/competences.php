@@ -55,6 +55,7 @@ include('inc/nav.inc.php');
     </head>
 </head>
 <body>
+
     <div class="container"><!-- debut du container bootrap-->
         <div class="page-header well"><!-- encadrement du tableau-->
             <h1>Admin <?= $ligne_utilisateur['prenom']?></h1><!-- insertion de mon preénom en php-->
@@ -65,7 +66,16 @@ include('inc/nav.inc.php');
         $resultat -> execute();// execution de la requete
         $nbr_competences =  $resultat -> rowCount();
         ?>
-        <h2> Les compétences</h2>
+        <!-- Fil d'ariane -->
+        <ol class="breadcrumb">
+            <li><a href="index.php">Accueil</a></li>
+            <li><a href="experiences.php">Expériences</a></li>
+            <li><a href="realisations.php">Réalisations</a></li>
+            <li><a href="Formations.php">Formations</a></li>
+            <li><a href="loisirs.php">Loisirs</a></li>
+            <li class="active">Compétences</li>
+        </ol>
+        <h2 class="centrer">Les compétences :</h2>
         <div class="row"><!-- déclaration de la  grande colonne-->
             <div class="col-md-8"><!-- division de la collone avec un un col md 8 qui correspond a 60% de notre container-->
                 <div class="panel panel-info">

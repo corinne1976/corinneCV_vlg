@@ -65,6 +65,8 @@ if (isset($_GET['id_loisir'])) { // on récupère la comp. par son id dans l'url
         // $ligne_competence = $resultat -> fetch();
 ?>
 <?php include('inc/nav.inc.php'); ?>
+
+
 <div class="container">
     <div class="page-header">
         <h1>Admin : <?= ($ligne_utilisateur['prenom']); ?></h1>
@@ -72,7 +74,10 @@ if (isset($_GET['id_loisir'])) { // on récupère la comp. par son id dans l'url
     <!-- Fil d'ariane -->
     <ol class="breadcrumb">
         <li><a href="index.php">Accueil</a></li>
-        <li><a href="#">Parcours</a></li>
+        <li><a href="experiences.php">Expériences</a></li>
+        <li><a href="realisations.php">Réalisations</a></li>
+        <li><a href="Formations.php">Formations</a></li>
+        <li><a href="competences.php">Compétences</a></li>
         <li class="active">Loisirs</li>
     </ol>
     <div class="row">

@@ -1,6 +1,6 @@
 <?php
-session_start();// à mettre dans toutes les pages de l'Admin
 require('connexion.php');
+session_start();// à mettre dans toutes les pages de l'Admin
 if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
 
     $id_utilisateur = $_SESSION['id_utilisateur'];
@@ -63,3 +63,4 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
        </div>
        </div>
        </body>
+<?php include('inc/footer.inc.php'); ?>

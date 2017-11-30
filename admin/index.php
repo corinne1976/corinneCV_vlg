@@ -38,9 +38,6 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-
-
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -58,7 +55,7 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
     <div class="col-xs-12 col-sm-6 col-md-offset-3 col-sm-offset-3">
 
     </div>
-    <img src="img/paysage3.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%" height="236">
+    <img src="img/paysage4.jpg" class="img-circle col-xs-10 col-sm-6 col-md-offset-3 col-sm-offset-1" alt="Cinque Terre" width="100%" height="500">
 </div>
 
 </body>

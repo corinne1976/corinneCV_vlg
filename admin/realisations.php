@@ -82,12 +82,15 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
     <!-- Fil d'ariane -->
     <ol class="breadcrumb">
         <li><a href="index.php">Accueil</a></li>
-        <li><a href="#">Parcours</a></li>
+        <li><a href="experiences.php">Expériences</a></li>
+        <li><a href="loisirs.php">Loisirs</a></li>
+        <li><a href="formations.php">Formations</a></li>
+        <li><a href="competences.php">Competences</a></li>
         <li class="active">Réalisations</li>
     </ol>
     <div class="row">
         <div class="col-md-8">
-            <h2>Les réalisations :</h2>
+            <h2 class="centrer">Les réalisations :</h2>
             <h4 class="well">J'ai <?= $nbr_realisation;?> realisation<?= ($nbr_realisation>1)?'s':''?></h4>
         </div>
         <div class="row">

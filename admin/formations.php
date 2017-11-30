@@ -80,15 +80,17 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
     <div class="page-header">
         <h1>Admin : <?= ($ligne_utilisateur['prenom']); ?></h1>
     </div>
-    <!-- Fil d'ariane -->
     <ol class="breadcrumb">
         <li><a href="index.php">Accueil</a></li>
-        <li><a href="#">Parcours</a></li>
-        <li class="active">Formation</li>
-    </ol>
+        <li><a href="realisations.php">Réalisations</a></li>
+        <li><a href="experiences.php">Experiences</a></li>
+        <li><a href="competences.php">Competences</a></li>
+        <li><a href="loisirs.php">Loisirs</a></li>
+        <li class="active">Formations</li>
+</ol>
     <div class="row">
         <div class="col-md-8">
-            <h2>Les formations :</h2>
+            <h2 class="centrer">Les formations :</h2>
             <h4 class="well">J'ai <?= $nbr_formations;?> formation<?= ($nbr_formations>1)?'s':''?></h4>
         </div>
         <div class="row">
