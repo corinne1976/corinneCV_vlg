@@ -44,7 +44,7 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
 
                  </div>
                  <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
-                     <div class="container" >
+                     <!-- <div class="container" > -->
                        <h4><?php echo $ligne_utilisateur['prenom'] ;?> <?php echo $ligne_utilisateur['nom'] ;?></h4>
 
 
