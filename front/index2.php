@@ -49,10 +49,8 @@
   <section id="home" name="home"></section>
    <div id="Introduction">
    <div class="container">
-    <!-- <div class="row"> -->
-     <h1 id="holder"></h1>
+ <div class="row">
      <br>
-     <h3>Intégratrice Developpeuse Web Junior</h3>
      <br>
      <br>
    </div>
@@ -63,8 +61,8 @@
 <img src="img/ampoule.jpg" alt="">
        </div>
    </div>
-   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-   <script type="text/javascript" src="js/main.js"></script>
+   <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <script type="text/javascript" src="js/main.js"></script> -->
 
 </body>
 </html>

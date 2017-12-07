@@ -1,12 +1,78 @@
-div {
-    width: 300px;
-    height: 100px;
-    background-color: yellow;
-    border: 1px solid black;
+@charset "UTF-8";
+
+body, html{
+    padding: 0;
+    margin: 0;
+
 }
 
-div#myDiv {
-    -ms-transform: rotate(20deg); /* IE 9 */
-    -webkit-transform: rotate(20deg); /* Safari */
-    transform: rotate(20deg); /* Standard syntax */
+body{
+    font-family: 'Lobster', cursive;
+    /*background-image:linear-gradient(60deg, white, black,);*/
+    background: #E9E9E5;
 }
+
+a{
+    text-decoration: none;
+    color: pink;
+    font-family: 'Playfair Display SC', serif;
+}
+a:hover{
+    text-decoration: none;
+    background: -webkit-linear-gradient(left, #626060, #928B8B);
+  background: linear-gradient(to right, #626060, #928B8B);
+}
+
+/*header*/
+.header{
+    background: -webkit-linear-gradient(left, black, #52524E, black);
+    /*background-image:linear-gradient(60deg,black, white);*/
+    height: 70px;/*hauter*/
+    line-height: 35px;
+}
+
+}
+
+logo{
+    text-transform: uppercase;/*majuscule*/
+    font-weight: bold;/*en gras*/
+    letter-spacing: 1px;/*espace entre les lettres*/
+    float: left;/*pour le mettre a gauche*/
+
+}
+.menu{
+    float: right;/*pour le mettre a droite*/
+}
+
+.menu a{
+    margin-right: 20px;
+    color: pink;
+     text-decoration:none;
+}
+
+.grey{
+    /*background-color: black;*/
+    border : 1px solid black;
+}
+
+/*#holder{
+    color: #E3F8FF ;
+}
+h1{
+    position: absolute;
+    color: pink;
+    margin-left: 587px;
+    margin-top: 230px;
+}*/
+
+/*banniere*/
+
+
+/*apropos*/
+
+
+
+/*portfolio*/
+
+
+/*contact*/

@@ -16,5 +16,5 @@ $(document).ready(function() {
 })(jQuery);
 
 // input text for typing animation
-  $("#holder").writeText("Bienvenue sur mon portfolio !");
+  $("#holder").writeText("Corinne Tina Intégratrice Developpeuse web junior");
 })
