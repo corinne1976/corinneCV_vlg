@@ -1,4 +1,33 @@
+<?php
+//créé un formulaire
+//Formulaire/index.php
+// on récupère la classe Contact
+require('Contact.class.php');
 
+// on vérifie que le formulaire a été posté
+if (!empty($_POST))
+{
+	// on éclate le $_POST en tableau qui permet d'accéder directement aux champs par des variables
+    extract($_POST);
+
+    // on effectue une validation des données du formulaire et on vérifie la validité de l'email
+     $valid = (empty($nom) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($sujet) || empty($message)) ? false : true; // écriture ternaire pour if / else
+     $erreurnom = (empty($nom)) ? 'Indiquez votre nom' : null;
+     $erreuremail = (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) ? 'Entrez un email valide' : null;
+     $erreursujet = (empty($sujet)) ? 'Indiquez un sujet' : null;
+     $erreurmessage = (empty($message)) ? 'Parlez donc !!' : null;
+
+    // si tous les champs sont correctement renseignés
+    if ($valid)
+    {
+    	// on crée un nouvel objet (ou une instance) de la class Contact.class.php
+        $contact = new Contact();
+        // on utilise la méthode insertContact pour insérer en BDD
+        $contact->insertContact($nom, $email, $sujet, $message);
+    }
+}
+
+ ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -96,35 +125,43 @@
 </body>
 
 <footer class="container-fluid footer">
-    <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-      <h2>Contact</h2>
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-        <form id="contact-form" class="form" action="#" method="POST" role="form">
-            <div class="form-group">
-                <label class="form-label" for="name">votre nom</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Your name" tabindex="1" required>
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="email">votre  Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" tabindex="2" required>
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="subject">sujet</label>
-                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" tabindex="3">
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="message">Message</label>
-                <textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Message..." tabindex="4" required></textarea>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-start-order">envoyer votre Message</button>
-            </div>
-        </form>
-    </div>
-</div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="grass.jpg" alt="photo de nature" style="height: 71vh; width: 27vw; border-radius: 1%">
+                </div><!-- /.col-md-4 -->
+                <div class="col-md-6 offset-2">
+                    <h3>Formulaire de contact</h3>
+                    <h5>Réalisé en POO</h5>
+                    <form action="index3.php" method="POST">
+                        <div class="form-group">
+                            <label for="nom">Nom :</label>
+                            <span class="error"><?php if (isset($erreurnom)) echo $erreurnom; ?></span>
+                            <input class="form-control" type="text" name="nom" value="<?php if(isset($nom)) echo $nom; ?>">
+                        </div>
+                        <div class="form-group">
+                           <label for="email">Email :</label>
+                           <span class="error"><?php if (isset($erreuremail)) echo $erreuremail; ?></span>
+                           <input id="email" class="form-control" type="text" name="email" value="<?php if (isset($email)) echo $email; ?>">
+                       </div>
+                       <div class="form-group">
+                           <label for="sujet">Sujet :</label>
+                           <span class="error"><?php if (isset($erreursujet)) echo $erreursujet; ?></span>
+                           <input class="form-control" type="text" name="sujet" value="<?php if (isset($sujet)) echo $sujet; ?>">
+                       </div>
+                       <div class="form-group">
+                            <label for="message">Message :</label>
+                            <span class="error"><?php if (isset($erreurmessage)) echo $erreurmessage; ?></span>
+                            <textarea class="form-control" name="co_message" cols="30" rows="10"><?php if (isset($message)) echo $message; ?></textarea>
+                        </div>
+
+                         <input type="submit" class="btn btn-outline-info btn-block btn-submit" value="Envoyer" />
+
+                    </form><!-- /form -->
+                </div><!-- /.col-md-6 col-md-offset-2 -->
+            </div><!-- /.row -->
+        </div><!-- /.card-body -->
+    </div><!-- /.card -->
 </footer>
 </html>

@@ -18,7 +18,7 @@ class Contact {
         $this->message = strip_tags($message);
 
         // appelle la connexion à la BDD
-        require('init.inc.php');
+        require('connexion.php');
 
         // on crée une requête puis on l'exécute
         $req = $bdd->prepare('INSERT INTO t_commentaires (nom, email, sujet, message) VALUES (:nom, :email, :sujet, :message)');
