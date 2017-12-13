@@ -21,19 +21,25 @@ a:hover{
     text-decoration: none;
     background: -webkit-linear-gradient(left, #626060, #928B8B);
   background: linear-gradient(to right, #626060, #928B8B);
+
+}
+
+.container-fluid{/*pour enlever le padding margin du container fluid qui pousse l'image de la bannière en créant un espace  */
+    padding: 0;
+    margin: 0;
+
 }
 
 /*header*/
 .header{
     background: -webkit-linear-gradient(left, black, #52524E, black);
-    /*background-image:linear-gradient(60deg,black, white);*/
     height: 70px;/*hauter*/
-    line-height: 35px;
+    line-height: 35px; /*centrer de manière vertical*/
 }
 
 }
 
-logo{
+.logo{
     text-transform: uppercase;/*majuscule*/
     font-weight: bold;/*en gras*/
     letter-spacing: 1px;/*espace entre les lettres*/
@@ -45,15 +51,18 @@ logo{
 }
 
 .menu a{
-    margin-right: 20px;
+    margin-right: 20px;/*pour  mettre a droite*/
     color: pink;
      text-decoration:none;
 }
 
-.grey{
-    /*background-color: black;*/
-    border : 1px solid black;
+.menu a:hover{/*décoration quand on passe sur les liens*/
+    color: #FFCEF3;
+
+
 }
+
+
 
 /*#holder{
     color: #E3F8FF ;
@@ -67,12 +76,57 @@ h1{
 
 /*banniere*/
 
+.banner{
+    width: 100%;
+    height: 100%;
+}
+
+.ban{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.ban img{
+    width: 100%;
+    max-width: 100%;
+}
+
+.inner-banner{
+    color: pink;
+    position: absolute;
+    top: 30%;
+    /*left: 0;*/
+    width: 100%;
+    text-align: center;
+}
+
+.inner-banner button{
+    background: -webkit-linear-gradient(left, black, #52524E, black);
+}
+
+#holder{
+    color: pink;
+}
 
 /*apropos*/
 
 
 
-/*portfolio*/
+/*realisations*/
 
+/*.item-realisations img {
+    /*position: relative;
+  overflow: hidden;*/
+    /*-webkit-transform: rotate(30deg);
+    transform: rotate(30deg);*/
+    /*z-index:1;
+	height:150px;
+	box-shadow: 0 0 3px black;*/
+
+.item-realisations img:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
 
 /*contact*/
