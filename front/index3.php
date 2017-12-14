@@ -30,8 +30,8 @@
             <nav class="menu"><!--debut nav class menu-->
                 <a href="#">Acceuil</a><!--lien Acceuil-->
                 <a href="#apropos">A propos</a><!--lien a propos-->
-                <a href="#realisations">Réalisations</a><!--lien Portfolio-->
-                <a href="#contact">Contact</a><!--lien Portfolio-->
+                <a href="#realisations">Réalisations</a><!--lien réalisations-->
+                <a href="#contact">Contact</a><!--lien contact vers le footer-->
 
             </nav><!--fin nav class menu-->
         </div><!-- fin div container -->
@@ -73,19 +73,20 @@
                 aria-valuemin="0" aria-valuemax="100" style="width:30%">
                 <!-- <span class="sr-only">70% Complete</span> -->
             </div>
-            </article>
-            <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
-                <h2>experiences</h2>
+        </article>
+        <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
+            <h2>experiences</h2>
+            <p>Depuis juin 2017 Intégrateur developpeur web : <br>Le Poles Villeneuve la Garenne<br>Réalisation d'un site dynamique perso</p>
+            <p>Juin 2011 - juin 2013 :  <br> Gestionnaire Facturation  <br>Luz Optique<br>Service rélations adhérents</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </article>
-            <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
-                <h2>Formations</h2>
+        </article>
+        <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
+            <h2>Formations</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </article>
-        </div>
+        </article>
     </div>
+</div>
 
 </section><!-- fin a propos-->
 
@@ -93,10 +94,10 @@
     <div class="container"><!-- debut container-->
         <h3>Réalisations</h3>
         <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12 item-realisations">
-            <img  class="responsive" src="img/site.PNG" width="100%"alt="">
+            <img  class=" img-thumbnail img-rounded responsive" src="img/site.PNG" width="100%"alt="">
         </article>
         <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12 item-realisations">
-            <img  class="responsive" src="img/site2.PNG" width="100%"alt="">
+            <img  class="img-thumbnail img-rounded responsive" src="img/site2.PNG" width="100%"alt="">
         </article>
     </div><!-- fin container-->
 </section><!-- fin réalisations-->
@@ -104,6 +105,23 @@
 <footer class="container-fluid footer"><!-- debut footer-->
     <div class="container"><!-- debut container-->
         <div class="row"><!-- debut row-->
+            <ul class="list-inline">
+            <li>
+              <a href="https://twitter.com/twitter" target="_blank" class="btn btn-default btn-lg">
+                <i class="fa fa-twitter"></i> <span class="network-name">Twitter</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/corinne1976/corinneCV_vlg" target="_blank" class="btn btn-default btn-lg">
+                <i class="fa fa-github"></i> <span class="network-name">Github</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/corinne-tina-8609a6146/" target="_blank" class="btn btn-default btn-lg">
+                <i class="fa fa-linkedin"></i> <span class="network-name">LinkedIn</span>
+              </a>
+            </li>
+          </ul>
             <div class="contact"><!-- debut div class contact-->
                 <form class="contact-form" action="" method="post"><!-- debut formulaire-->
                     <input type="text" name="nom" placeholder="nom" required>
