@@ -3,14 +3,14 @@
 body, html{
     padding: 0;
     margin: 0;
-    background: lightgrey;
+    background: #DAC7D3;
 
 }
 
 body{
     font-family: 'Lobster', cursive;
     /*background-image:linear-gradient(60deg, white, black,);*/
-    background: ##E3D9CA;
+    background: #868B87;
 }
 
 a{
@@ -148,5 +148,5 @@ h2,h3{
   xletter-spacing: 0.2px;
 }
 .footer{
-    background:-webkit-linear-gradient(left, black, #52524E, black);
+    background:#DAC7D3;
 }

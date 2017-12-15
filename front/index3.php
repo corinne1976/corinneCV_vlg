@@ -1,3 +1,24 @@
+<?php
+require 'connexion.php';
+require 'contact.class.php';
+
+// on vérifie que le formulaire a été poste
+if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui nous permets d'accèder aux champs par des variables
+    extract($_POST);
+    $valid = (empty($nom) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($sujet) || empty($message))
+    ? false : true;// écriture ternaire if else
+
+    if ($valid) {// si tous les champs sont renseignés
+        $contact = new Contact();// on crée un nouvel objet (ou instance ) de la class Contact.class.phpinfo
+        $contact->insertContact($nom, $email, $sujet, $message);
+        unset($nom);
+        unset($email);
+        unset($sujet);
+        unset($message);
+    }
+}
+
+ ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -47,94 +68,111 @@
         </div>
     </section><!-- fin banniere-->
 
-    <section class="container-fluid apropos"><!-- debut apropos bootstrap  avec le container fluid les articles seront collés-->
-        <div class="container">
+    <section class="container-fluid  jumbotron apropos"><!-- debut apropos bootstrap  avec le container fluid les articles seront collés-->
+        <div class="container jumbotron">
 
             <div class="row">
                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
                     <h2>Compétences</h2>
-                    <p>html</p>
+                    <h4>HTML</h4>
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                        aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                        <!-- <span class="sr-only">70% Complete</span> -->
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 60%;">
+                            60%
+                        </div>
                     </div>
-                </div>
-                <p>css</p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="60"
-                    aria-valuemin="0" aria-valuemax="100" style="width:60%">
-                    <!-- <span class="sr-only">70% Complete</span> -->
-                </div>
+                    <h4>CSS</h4>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
+                            50%
+                        </div>
+                    </div>
+                    <h4>PHP</h4>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 40%;">
+                            40%
+                        </div>
+                    </div>
+                    <h4>Bootstrap</h4>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
+                            50%
+                        </div>
+                    </div>
+                </article>
+                <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
+                    <h2>experiences</h2>
+                    <p>Depuis juin 2017 Intégrateur developpeur web : <br>Le Poles Villeneuve la Garenne<br>Réalisation d'un site dynamique perso</p>
+                    <p>Juin 2011 - juin 2013 :  <br> Gestionnaire Facturation  <br>Luz Optique<br>Service rélations adhérents</p>
+
+                </article>
+                <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
+                    <h2>Formations</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                </article>
             </div>
-            <p>php</p>
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="30"
-                aria-valuemin="0" aria-valuemax="100" style="width:30%">
-                <!-- <span class="sr-only">70% Complete</span> -->
-            </div>
-        </article>
-        <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
-            <h2>experiences</h2>
-            <p>Depuis juin 2017 Intégrateur developpeur web : <br>Le Poles Villeneuve la Garenne<br>Réalisation d'un site dynamique perso</p>
-            <p>Juin 2011 - juin 2013 :  <br> Gestionnaire Facturation  <br>Luz Optique<br>Service rélations adhérents</p>
+        </div>
 
-        </article>
-        <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
-            <h2>Formations</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section><!-- fin a propos-->
 
-        </article>
-    </div>
-</div>
+    <section class=" container-fluid realisations"><!-- debut realisations-->
+        <div class="container"><!-- debut container-->
+            <h3>Réalisations</h3>
+            <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12 item-realisations">
+                <img  class=" img-thumbnail img-rounded responsive" src="img/site.PNG" width="100%"alt="">
+            </article>
+            <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12 item-realisations">
+                <img  class="img-thumbnail img-rounded responsive" src="img/site2.PNG" width="100%"alt="">
+            </article>
+        </div><!-- fin container-->
+    </section><!-- fin réalisations-->
 
-</section><!-- fin a propos-->
+    <footer class="container-fluid footer"><!-- debut footer-->
+        <div class="container"><!-- debut container-->
+            <div class="row"><!-- debut row-->
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://twitter.com/twitter" target="_blank" class="btn btn-default btn-lg">
+                            <i class="fa fa-twitter"></i> <span class="network-name">Twitter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/corinne1976/corinneCV_vlg" target="_blank" class="btn btn-default btn-lg">
+                            <i class="fa fa-github"></i> <span class="network-name">Github</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/corinne-tina-8609a6146/" target="_blank" class="btn btn-default btn-lg">
+                            <i class="fa fa-linkedin"></i> <span class="network-name">LinkedIn</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="contact"><!-- debut div class contact-->
+                    <form action="" method="POST">
+                    <div class="form-group">
+                        <label for="nom">Nom:</label>
+                        <input type="text" class="form-control" name="nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email : </label>
+                        <input type="email" class="form-control" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="sujet">Sujet:</label>
+                        <input type="text" class="form-control" name="sujet" placeholder="Objet de votre message">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea class="form-control" rows="5" name="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-default">Envoyer</button>
+                </form>
 
-<section class=" container-fluid realisations"><!-- debut realisations-->
-    <div class="container"><!-- debut container-->
-        <h3>Réalisations</h3>
-        <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12 item-realisations">
-            <img  class=" img-thumbnail img-rounded responsive" src="img/site.PNG" width="100%"alt="">
-        </article>
-        <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12 item-realisations">
-            <img  class="img-thumbnail img-rounded responsive" src="img/site2.PNG" width="100%"alt="">
-        </article>
-    </div><!-- fin container-->
-</section><!-- fin réalisations-->
-
-<footer class="container-fluid footer"><!-- debut footer-->
-    <div class="container"><!-- debut container-->
-        <div class="row"><!-- debut row-->
-            <ul class="list-inline">
-            <li>
-              <a href="https://twitter.com/twitter" target="_blank" class="btn btn-default btn-lg">
-                <i class="fa fa-twitter"></i> <span class="network-name">Twitter</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/corinne1976/corinneCV_vlg" target="_blank" class="btn btn-default btn-lg">
-                <i class="fa fa-github"></i> <span class="network-name">Github</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/corinne-tina-8609a6146/" target="_blank" class="btn btn-default btn-lg">
-                <i class="fa fa-linkedin"></i> <span class="network-name">LinkedIn</span>
-              </a>
-            </li>
-          </ul>
-            <div class="contact"><!-- debut div class contact-->
-                <form class="contact-form" action="" method="post"><!-- debut formulaire-->
-                    <input type="text" name="nom" placeholder="nom" required>
-                    <input type="email" name="email" placeholder="email" required>
-                    <input type="text" name="sujet" placeholder="sujet" required>
-                    <textarea name="message" rows="5" placeholder="message" required></textarea>
-                    <input class="button" type="submit">
-                </form><!-- fin formulmaire-->
-            </div><!-- fin div class contact-->
-        </div><!-- fin row-->
-    </div><!-- fin container-->
-</footer><!-- fin footer-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+                </div><!-- fin div class contact-->
+            </div><!-- fin row-->
+        </div><!-- fin container-->
+    </footer><!-- fin footer-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
