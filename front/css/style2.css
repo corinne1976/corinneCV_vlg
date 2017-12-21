@@ -3,19 +3,18 @@
 body, html{
     padding: 0;
     margin: 0;
-    background: #DAC7D3;
 
 }
 
 body{
     font-family: 'Lobster', cursive;
     /*background-image:linear-gradient(60deg, white, black,);*/
-    background: #868B87;
+
 }
 
 a{
     text-decoration: none;
-    color: pink;
+    color: #BE946B;
     font-family: 'Playfair Display SC', serif;
 }
 a:hover{
@@ -33,7 +32,7 @@ a:hover{
 
 /*header*/
 .header{
-    background: -webkit-linear-gradient(left, black, #52524E, black);
+    background-color: #4E5B23;
     height: 70px;/*hauter*/
     line-height: 35px; /*centrer de manière vertical*/
 }
@@ -53,15 +52,16 @@ a:hover{
 
 .menu a{
     margin-right: 20px;/*pour  mettre a droite*/
-    color: pink;
+    color: #BE946B;
      text-decoration:none;
 }
 
 .menu a:hover{/*décoration quand on passe sur les liens*/
-    color: #FFCEF3;
+    color: #BE946B;
 
 
 }
+
 
 
 
@@ -85,34 +85,42 @@ a:hover{
 }
 
 .inner-banner{
-    color: pink;
+    /* color: pink; */
     position: absolute;
-    top: 30%;
+    top: 42%;
     /*left: 0;*/
     width: 100%;
     text-align: center;
 }
 
-.inner-banner button{
+.inner-banner a{
     background: -webkit-linear-gradient(left, black, #52524E, black);
 }
 
 #holder{
-    color: #F3637E;
+    color: #573727;
 }
 
 /*apropos*/
 
+
 h2,h3{
     text-transform: uppercase;
     /* color: -webkit-linear-gradient(left, black, #52524E, black); */
-    background: -webkit-gradient(linear, left top, left bottom, from(#000), to(grey));
+    background: #573727;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-size: 25px;
+}
+.roboto{
+    font-family: roboto;
+    color: #573727;
+}
+h4{
+    color: #573727;
 }
 
 /*realisations*/
-
 /*.item-realisations img {
     /*position: relative;
   overflow: hidden;*/
@@ -131,22 +139,34 @@ h2,h3{
 
 /*footer reseaux sociaux*/
 .btn {
-    background:-webkit-linear-gradient(left, black, #52524E, black);
-    color: pink;
-  background-color: -webkit-linear-gradient(left, black, #52524E, black);
+    color: white;
+  background-color:#BE946B;
   display: inline-block;
   box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
   transition: 0.2s;
 }
 
 .btn:hover{
-  background-color: -webkit-linear-gradient(left, black, #52524E, black);
-  background-color: -webkit-linear-gradient(left, black, #52524E, black);
-  color: pink;
+  background-color: #BE946B;
+
+  color: white;
   xtext-shadow: 1px 1px 1px rgba(98,158,218, 20);
   box-shadow: 1px 1px1px;
   xletter-spacing: 0.2px;
 }
+
+.btn-custom{
+      background-color: #BE946B;
+}
+
+.inner-banner button{
+     background-color: #BE946B;
+}
+
+ .progress-bar{
+    background-color: #4E5B23;
+ }
+
 .footer{
-    background:#DAC7D3;
+    background:#4E5B23;
 }

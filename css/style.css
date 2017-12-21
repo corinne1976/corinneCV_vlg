@@ -1,0 +1,143 @@
+/* Style Navigation */
+.navbar {
+ min-height: 70px;
+ padding-top: 10px;
+ margin-bottom: 0px;
+}
+
+.navbar-brand {
+ font-family: 'Raleway', sans-serif;
+ font-weight: 900;
+}
+
+.navbar-header .navbar-brand {
+ color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+ color: white;
+ font-weight: 700;
+ font-size: 15px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+ color: rgba(172, 186, 191, 0.82);
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+ color: rgba(172, 186, 191, 0.82);
+ background: transparent;
+}
+
+.navbar-default {
+ background-color: black;
+ border-color: transparent;
+}
+
+/* Style Introduction */
+#Introduction {
+ background: black;
+ margin-top: -10px;
+ padding-top: 20px;
+ text-align: center;
+ background-attachment: relative;
+ background-position: center center;
+ min-height: 700px;
+ width: 100%;
+
+ -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#Introduction h1 {
+ margin-top: 150px;
+ color: white;
+ font-size: 50px;
+ font-weight: 700;
+}
+
+#Introduction h3 {
+ color: white;
+ font-size: 30px;
+ font-weight: 100;
+ font-family: 'Raleway', sans-serif;
+ font-style: oblique;
+
+ Sélectionnez
+ /* Style bouton */
+ .btn-theme {
+  color: #fff;
+  background-color: #384452;
+  border-color: #384452;
+  margin: 4px;
+ }
+ .btn-theme:hover,
+ .btn-theme:focus,
+ .btn-theme:active,
+ .btn-theme.active,
+ .open .dropdown-toggle.btn-theme {
+  color: #fff;
+  background-color: #FCAC45;
+  border-color: #ffffff;
+ }
+
+ #transformation {
+  /* identique à scaleX(2) scaleY(2)*/
+  transform: scale(2);
+  background-color: blue;
+}
+/*code SKILLs*/
+ @keyframes "blink" {
+   from, to {
+     color: transparent;
+   }
+   50% {
+     color: white;
+   }
+ }
+
+ @-moz-keyframes blink {
+   from, to {
+     color: transparent;
+   }
+   50% {
+     color: white;
+   }
+ }
+
+ @-webkit-keyframes "blink" {
+   from, to {
+     color: transparent;
+   }
+   50% {
+     color: white;
+   }
+ }
+
+ @-ms-keyframes "blink" {
+   from, to {
+     color: transparent;
+   }
+   50% {
+     color: white;
+   }
+ }
+
+ @-o-keyframes "blink" {
+   from, to {
+     color: transparent;
+   }
+   50% {
+     color: white;
+   }
+ }
+ #holder{
+     color: #E3F8FF ;
+ }
