@@ -7,14 +7,14 @@ body, html{
 }
 
 body{
-    font-family: 'Lobster', cursive;
+    font-family: serif;
     /*background-image:linear-gradient(60deg, white, black,);*/
 
 }
 
 a{
     text-decoration: none;
-    color: #BE946B;
+    color: beige;
     font-family: 'Playfair Display SC', serif;
 }
 a:hover{
@@ -56,8 +56,8 @@ a:hover{
 
 .menu a{
     margin-right: 20px;/*pour  mettre a droite*/
-    color: pink;
-     text-decoration:none;
+    color: beige;
+    text-decoration:none;
 }
 
 .menu a:hover{/*décoration quand on passe sur les liens*/
@@ -99,13 +99,17 @@ a:hover{
 }
 
 .inner-banner button{
-    background: -webkit-linear-gradient(left, black, #52524E, black);
+     background: beige; 
 }
-
+.btn.focus, .btn:focus, .btn:hover{
+    color: #573727;
+}
 #holder{
     color: #573727;
 }
-
+.inner-banner button{
+    background: #573727;
+}
 /*apropos*/
 
 

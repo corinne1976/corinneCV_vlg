@@ -1,5 +1,5 @@
 <?php
-// require 'connexion.php';
+require 'connexion.php';
 require 'Contact.class.php';
 
 // on vérifie que le formulaire a été poste
@@ -47,30 +47,30 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
 <body>
     <header class="container-fluid header"><!-- debut header avec bootstrap-->
         <div class="container"><!--debut div container-->
+            <div class="row">
             <a href="index.html" class="logo">Corinne tina </a>
             <nav class="menu"><!--debut nav class menu-->
                 <a href="#">Acceuil</a><!--lien Acceuil-->
                 <a href="#apropos">A propos</a><!--lien a propos-->
                 <a href="#realisations">Réalisations</a><!--lien réalisations-->
                 <a href="#contact">Contact</a><!--lien contact vers le footer-->
-
+            </div>
             </nav><!--fin nav class menu-->
         </div><!-- fin div container -->
     </header><!-- fin  header-->
     <section class="container-fluid banner"> <!-- debut banniere-->
         <div class="ban">
             <!-- <h1 id="holder"></h1> -->
-            <img src="img/bureau.jpg" alt="banniere du site">
+            <img  class="responsive" src="img/bureau.jpg" alt="banniere du site">
         </div>
         <div class="inner-banner">
             <h1 id="holder"></h1>
             <button class="btn btn-custom">Contactez moi</i></button>
         </div>
     </section><!-- fin banniere-->
-
     <section class="container-fluid  jumbotron apropos"><!-- debut apropos bootstrap  avec le container fluid les articles seront collés-->
         <div class="container jumbotron">
-
+            <span id="apropos">A Propos</span>
             <div class="row">
                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
                     <h2>Compétences</h2>
@@ -113,8 +113,8 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
                 </article>
                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
                     <h2>Certifications</h2>
-                    <p class="roboto"> 2017-2018 : <br>Webforce3 Certifications Intégrateur développeur web Webforce3</p><br>
-                    <p class="roboto"> 1995-1996 :<br>Baccalauréat Assistant administratif et techniques de secrétariat</p>
+                    <p class="roboto"> De 2017-2018 : <br>Webforce3 Certifications Intégrateur développeur web Webforce3</p><br>
+                    <p class="roboto"> De 1995-1996 :<br>Baccalauréat secrétariat</p>
 
                 </article>
             </div>
@@ -124,7 +124,7 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
 
     <section class=" container-fluid realisations"><!-- debut realisations-->
         <div class="container"><!-- debut container-->
-            <h3>Réalisations</h3>
+            <h3 id="realisations">Réalisations</h3>
             <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12 item-realisations">
                 <img  class=" img-thumbnail img-rounded responsive" src="img/site.PNG" width="100%"alt="">
             </article>
@@ -136,6 +136,7 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
 
     <footer class="container-fluid footer"><!-- debut footer-->
         <div class="container"><!-- debut container-->
+            <span id="contact">Contact</span>
             <div class="row"><!-- debut row-->
                 <div class=" col-md-6 col-lg-6 col-xs-12 col-sm-12 contact"><!-- debut div class contact-->
                     <form action="" method="POST">
