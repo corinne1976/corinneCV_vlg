@@ -50,7 +50,7 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
             <div class="row">
             <a href="index.html" class="logo">Corinne tina </a>
             <nav class="menu"><!--debut nav class menu-->
-                <a href="#">Acceuil</a><!--lien Acceuil-->
+                <a href="#">Accueil</a><!--lien Acceuil-->
                 <a href="#apropos">A propos</a><!--lien a propos-->
                 <a href="#realisations">Réalisations</a><!--lien réalisations-->
                 <a href="#contact">Contact</a><!--lien contact vers le footer-->
@@ -61,7 +61,7 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
     <section class="container-fluid banner"> <!-- debut banniere-->
         <div class="ban">
             <!-- <h1 id="holder"></h1> -->
-            <img  class="responsive" src="img/bureau.jpg" alt="banniere du site">
+            <img  class="img-responsive" src="img/bureau.jpg" alt="banniere du site">
         </div>
         <div class="inner-banner">
             <h1 id="holder"></h1>
@@ -70,10 +70,16 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
     </section><!-- fin banniere-->
     <section class="container-fluid  jumbotron apropos"><!-- debut apropos bootstrap  avec le container fluid les articles seront collés-->
         <div class="container jumbotron">
+            <?php
+       $resultat = $pdo -> prepare("SELECT * FROM t_competences WHERE utilisateur_id ='1'");
+       $resultat->execute();
+       /*$ligne_competence = $resultat -> fetch();*/
+       ?>
             <span id="apropos">A Propos</span>
             <div class="row">
                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
                     <h2>Compétences</h2>
+                        <hr>
                     <h4>HTML</h4>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 60%;">
@@ -106,13 +112,15 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
                     </div>
                 </article>
                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
-                    <h2>Parcours pros</h2>
+                    <h2>Parcours pro</h2>
+                        <hr>
                     <p class="roboto">Depuis juin 2017 : <br>Intégratrice developpeuse web : <br>Le Poles Villeneuve la Garenne<br>Réalisation d'un site dynamique perso</p><br>
                     <p class="roboto">De 1999 à 2013 : <br>Luz Optique, Gnfa, Carglass<br>Gestion de la facturation, Aptitude rédactionnelle, Conseiller gérer et fidéliser un portefeuille de clients</p>
 
                 </article>
                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
                     <h2>Certifications</h2>
+                        <hr>
                     <p class="roboto"> De 2017-2018 : <br>Webforce3 Certifications Intégrateur développeur web Webforce3</p><br>
                     <p class="roboto"> De 1995-1996 :<br>Baccalauréat secrétariat</p>
 
@@ -160,24 +168,6 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
                 </form>
 
                 </div><!-- fin div class contact-->
-
-                 <ul class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
-                    <li>
-                        <a href="https://twitter.com/twitter" target="_blank" class="btn btn-default btn-lg">
-                            <i class="fa fa-twitter"></i> <span class="network-name">Twitter</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/corinne1976/corinneCV_vlg" target="_blank" class="btn btn-default btn-lg">
-                            <i class="fa fa-github"></i> <span class="network-name">Github</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/corinne-tina-8609a6146/" target="_blank" class="btn btn-default btn-lg">
-                            <i class="fa fa-linkedin"></i> <span class="network-name">LinkedIn</span>
-                        </a>
-                    </li>
-                </ul>
             </div><!-- fin row-->
             <div class="class row">
                 <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">

@@ -1,6 +1,6 @@
 <?php
 require 'connexion.php';
-require 'contact.class.php';
+require 'Contact.class.php';
 
 // on vérifie que le formulaire a été poste
 if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui nous permets d'accèder aux champs par des variables
@@ -47,74 +47,65 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
 <body>
     <header class="container-fluid header"><!-- debut header avec bootstrap-->
         <div class="container"><!--debut div container-->
+            <div class="row">
             <a href="index.html" class="logo">Corinne tina </a>
             <nav class="menu"><!--debut nav class menu-->
-                <a href="#">Acceuil</a><!--lien Acceuil-->
+                <a href="#">Accueil</a><!--lien Acceuil-->
                 <a href="#apropos">A propos</a><!--lien a propos-->
                 <a href="#realisations">Réalisations</a><!--lien réalisations-->
                 <a href="#contact">Contact</a><!--lien contact vers le footer-->
-
+            </div>
             </nav><!--fin nav class menu-->
         </div><!-- fin div container -->
     </header><!-- fin  header-->
     <section class="container-fluid banner"> <!-- debut banniere-->
         <div class="ban">
             <!-- <h1 id="holder"></h1> -->
-            <img src="img/bureau.jpg" alt="banniere du site">
+            <img  class="img-responsive" src="img/bureau.jpg" alt="banniere du site">
         </div>
         <div class="inner-banner">
             <h1 id="holder"></h1>
-            <button class="btn btn-custom">Contactez moi</button>
+            <button class="btn btn-custom">Contactez moi</i></button>
         </div>
     </section><!-- fin banniere-->
-
     <section class="container-fluid  jumbotron apropos"><!-- debut apropos bootstrap  avec le container fluid les articles seront collés-->
         <div class="container jumbotron">
-
-            <div class="row">
-                <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
-                    <h2>Compétences</h2>
-                    <h4>HTML</h4>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 60%;">
-                            60%
-                        </div>
+            <span id="apropos">A Propos</span>
+            <div class="row skill">
+                    <div class="three columns header-col">
+                    <h2>Compétences</h1>
                     </div>
-                    <h4>CSS</h4>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 60%;">
-                            50%
-                        </div>
-                    </div>
-                    <h4>PHP</h4>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-                            40%
-                        </div>
-                    </div>
-                    <h4>Bootstrap</h4>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-                            50%
-                        </div>
-                    </div>
-                    <h4>Sql</h4>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-                            50%
-                        </div>
-                    </div>
+                    <div class="nine columns main-col">
+                       <div class="bars">
+                               <ul class="skills">
+                    <?php
+                    $resultat = $pdo -> prepare("SELECT * FROM t_competences WHERE utilisateur_id ='1'");
+                       $resultat->execute();?>
+                       <?php while ($ligne_competence = $resultat -> fetch()) {
+                          //var_dump($ligne_competence);
+                          //echo $ligne_competence['c_niveau'];
+                          $niveau =$ligne_competence['c_niveau']."%";
+                         //echo $niveau;
+                          ?>
+                          <!--tant que il y a une resultat de competence affiche la (il est parti chercher et va l' afficher-->
+                             <li><span class="bar-expand " data-percent="<?php echo  $niveau;?>"></span><em><?= $ligne_competence['competence'];?></em></li>
+                            <?php } ?>
+                            </ul>
+                            </div><!-- fin Compétence-bras(skill-bars) -->
+                        </div> <!-- fin main-col  -->
                 </article>
                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
-                    <h2>Parcours pros</h2>
+                    <h2>Parcours pro</h2>
+                        <hr>
                     <p class="roboto">Depuis juin 2017 : <br>Intégratrice developpeuse web : <br>Le Poles Villeneuve la Garenne<br>Réalisation d'un site dynamique perso</p><br>
                     <p class="roboto">De 1999 à 2013 : <br>Luz Optique, Gnfa, Carglass<br>Gestion de la facturation, Aptitude rédactionnelle, Conseiller gérer et fidéliser un portefeuille de clients</p>
 
                 </article>
                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
                     <h2>Certifications</h2>
-                    <p class="roboto"> 2017-2018 : <br>Webforce3 Certifications Intégrateur développeur web Webforce3</p><br>
-                    <p class="roboto"> 1995-1996 :<br>Baccalauréat Assistant administratif et techniques de secrétariat</p>
+                        <hr>
+                    <p class="roboto"> De 2017-2018 : <br>Webforce3 Certifications Intégrateur développeur web Webforce3</p><br>
+                    <p class="roboto"> De 1995-1996 :<br>Baccalauréat secrétariat</p>
 
                 </article>
             </div>
@@ -124,7 +115,7 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
 
     <section class=" container-fluid realisations"><!-- debut realisations-->
         <div class="container"><!-- debut container-->
-            <h3>Réalisations</h3>
+            <h3 id="realisations">Réalisations</h3>
             <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12 item-realisations">
                 <img  class=" img-thumbnail img-rounded responsive" src="img/site.PNG" width="100%"alt="">
             </article>
@@ -136,6 +127,7 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
 
     <footer class="container-fluid footer"><!-- debut footer-->
         <div class="container"><!-- debut container-->
+            <span id="contact">Contact</span>
             <div class="row"><!-- debut row-->
                 <div class=" col-md-6 col-lg-6 col-xs-12 col-sm-12 contact"><!-- debut div class contact-->
                     <form action="" method="POST">
@@ -159,24 +151,6 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
                 </form>
 
                 </div><!-- fin div class contact-->
-
-                 <ul class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
-                    <li>
-                        <a href="https://twitter.com/twitter" target="_blank" class="btn btn-default btn-lg">
-                            <i class="fa fa-twitter"></i> <span class="network-name">Twitter</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/corinne1976/corinneCV_vlg" target="_blank" class="btn btn-default btn-lg">
-                            <i class="fa fa-github"></i> <span class="network-name">Github</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/corinne-tina-8609a6146/" target="_blank" class="btn btn-default btn-lg">
-                            <i class="fa fa-linkedin"></i> <span class="network-name">LinkedIn</span>
-                        </a>
-                    </li>
-                </ul>
             </div><!-- fin row-->
             <div class="class row">
                 <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
