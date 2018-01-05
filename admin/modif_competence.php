@@ -21,17 +21,17 @@ if(isset($_POST['competence'])){ // par le nom d'une premier input
     $c_niveau = addslashes($_POST['c_niveau']);
     $id_competence = $_POST['id_competence'];
 
-    $pdoCV -> exec("UPDATE t_competences SET competence = '$competence', c_niveau = '$c_niveau' WHERE id_competence = '$id_competence'");
+    $bdd -> exec("UPDATE t_competences SET competence = '$competence', c_niveau = '$c_niveau' WHERE id_competence = '$id_competence'");
     header('location: competences.php');
     exit();
 }
 
 // je récupère la compétence
 $id_competence = $_GET['id_competence']; // par l'id et get
-$resultat = $pdoCV -> query("SELECT * FROM t_competences WHERE id_competence = '$id_competence'"); // la requete eest égale à l'ID
+$resultat = $bdd -> query("SELECT * FROM t_competences WHERE id_competence = '$id_competence'"); // la requete eest égale à l'ID
 $ligne_competence = $resultat -> fetch();
 
-$resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
+$resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
 $ligne_utilisateur = $resultat -> fetch();
 
 include('inc/header.inc.php');

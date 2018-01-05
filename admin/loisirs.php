@@ -23,7 +23,7 @@ $msg = '';
 if (isset($_POST['loisir'])) { // Si on a posté une nouvelle comp.
     if (!empty($_POST['loisir'])) { // Si compétence n'est pas vide
         $loisir = addslashes($_POST['loisir']);
-        $pdoCV -> exec("INSERT INTO t_loisirs VALUES (NULL, '$loisir', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+        $bdd -> exec("INSERT INTO t_loisirs VALUES (NULL, '$loisir', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
         header("location: loisirs.php");
         exit();
     } // ferme le if n'est pas vide
@@ -35,7 +35,7 @@ if (isset($_POST['loisir'])) { // Si on a posté une nouvelle comp.
 if (isset($_GET['id_loisir'])) { // on récupère la comp. par son id dans l'url
     $efface =  $_GET['id_loisir'];
     $resultat = "DELETE FROM t_loisirs WHERE id_loisir = '$efface'";
-    $pdoCV -> query($resultat); // on peut avec exec aussi si on veut
+    $bdd -> query($resultat); // on peut avec exec aussi si on veut
     header("location: loisirs.php"); // pour revenir sur la page
 } // ferme le if(isset)
 ?>
@@ -45,7 +45,7 @@ if (isset($_GET['id_loisir'])) { // on récupère la comp. par son id dans l'url
     <head>
         <meta charset="utf-8">
         <?php
-        $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
+        $resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
         $ligne_utilisateur = $resultat -> fetch();
         ?>
         <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>

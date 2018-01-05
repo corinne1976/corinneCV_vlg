@@ -18,13 +18,13 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
 if (isset($_POST['loisir'])) { // par le nom du premier input
     $loisir = addslashes($_POST['loisir']);
     $id_loisir = $_POST['id_loisir'];
-    $pdoCV -> exec("UPDATE t_loisirs SET loisir = '$loisir' WHERE id_loisir = '$id_loisir'");
+    $bdd -> exec("UPDATE t_loisirs SET loisir = '$loisir' WHERE id_loisir = '$id_loisir'");
     header('location: loisirs.php');
     exit();
 }
 // je récupère le loisir :
 $id_loisir = $_GET['id_loisir']; // par l'id et $_GET
-$resultat = $pdoCV -> query("SELECT * FROM t_loisirs WHERE id_loisir ='$id_loisir'"); // la requête est égale à l'id
+$resultat = $bdd -> query("SELECT * FROM t_loisirs WHERE id_loisir ='$id_loisir'"); // la requête est égale à l'id
 $ligne_loisir = $resultat->fetch();
 ?>
 
@@ -33,7 +33,7 @@ $ligne_loisir = $resultat->fetch();
     <head>
         <meta charset="utf-8">
         <?php
-        $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
+        $resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
         $ligne_utilisateur = $resultat -> fetch();
         ?>
         <title>Admin : <?= $ligne_utilisateur['pseudo']; ?></title>

@@ -35,7 +35,7 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -49,8 +49,8 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
 <body>
     <header class="container-fluid header"><!-- debut header avec bootstrap-->
         <div class="container"><!--debut div container-->
-            <div class="row">
-            <a href="index.html" class="logo">Corinne tina </a>
+            <div class="row centrer">
+            <a href="index.php" class="logo">Corinne tina </a>
             <nav class="menu"><!--debut nav class menu-->
                 <a href="#">Accueil</a><!--lien Acceuil-->
                 <a href="#apropos">A propos</a><!--lien a propos-->
@@ -167,14 +167,17 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
 
                 </div><!-- fin div class contact-->
                 <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12 col-md-offset-2">
-                    <i class="fa fa-mobile fa-4x" aria-hidden="true"></i><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <i class="fa fa-mobile fa-4x" aria-hidden="true"></i><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
 
 
                 </div>
             </div><!-- fin row--><br>
             <div class="class row">
                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                    <p class="center">Copyright Tina Corinne 2017</p>
+                    <p class="center">Copyright Tina Corinne 2017 <a href="admin/authentification.php">Admin</a></p>
+                    <p>
+
+                    </p>
                 </div>
             </div>
         </div><!-- fin container-->

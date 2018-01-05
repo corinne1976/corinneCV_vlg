@@ -30,7 +30,7 @@ if (isset($_POST['r_titre'])) { // Si on a posté une nouvelle form.
       $r_dates = addslashes($_POST['r_dates']);
       $r_description = addslashes($_POST['r_description']);
 
-     $pdoCV -> exec("INSERT INTO t_realisations VALUES (NULL, '$r_titre', '$r_soustitre', '$r_dates', '$r_description', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+     $bdd -> exec("INSERT INTO t_realisations VALUES (NULL, '$r_titre', '$r_soustitre', '$r_dates', '$r_description', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
       header("location: realisations.php");
       exit();
     }
@@ -44,7 +44,7 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
     $efface =  $_GET['id_realisation'];
 
    $resultat = "DELETE FROM t_realisations WHERE id_realisation = '$efface'";
-    $pdoCV -> query($resultat); // on peut avec exec aussi si on veut
+    $bdd -> query($resultat); // on peut avec exec aussi si on veut
     header("location: realisations.php"); // pour revenir sur la page
 
 } // ferme le if(isset)
@@ -54,7 +54,7 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
     <head>
         <meta charset="utf-8">
         <?php
-        $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
+        $resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
         $ligne_utilisateur = $resultat -> fetch();
         ?>
         <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
@@ -70,7 +70,7 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
     </head>
     <body>
         <?php
-        $resultat = $pdoCV -> prepare("SELECT * FROM t_realisations WHERE utilisateur_id ='1'");
+        $resultat = $bdd -> prepare("SELECT * FROM t_realisations WHERE utilisateur_id ='1'");
         $resultat->execute();
         $nbr_realisation = $resultat->rowCount();
 

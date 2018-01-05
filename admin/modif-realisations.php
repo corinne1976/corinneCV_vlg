@@ -21,13 +21,13 @@ if (isset($_POST['r_titre'])) { // par le nom du premier input
     $soustitre = addslashes($_POST['r_soustitre']);
     $dates = addslashes($_POST['r_dates']);
     $description = addslashes($_POST['r_description']);
-    $pdoCV -> exec("UPDATE t_realisations SET r_titre = '$titre', r_soustitre ='$soustitre', r_dates ='$dates', r_description ='$description' WHERE id_realisation = '$id_realisation'"); // SQL OK
+    $bdd -> exec("UPDATE t_realisations SET r_titre = '$titre', r_soustitre ='$soustitre', r_dates ='$dates', r_description ='$description' WHERE id_realisation = '$id_realisation'"); // SQL OK
     header('location: realisations.php');
     exit();
 }
 // je récupère la formation :
 $id_realisation = $_GET['id_realisation']; // par l'id et $_GET
-$resultat = $pdoCV -> query("SELECT * FROM t_realisations WHERE id_realisation ='$id_realisation'"); // la requête est égale à m'id
+$resultat = $bdd -> query("SELECT * FROM t_realisations WHERE id_realisation ='$id_realisation'"); // la requête est égale à m'id
 $ligne_realisation = $resultat->fetch();
 ?>
 
@@ -36,7 +36,7 @@ $ligne_realisation = $resultat->fetch();
     <head>
         <meta charset="utf-8">
         <?php
-        $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
+        $resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
         $ligne_utilisateur = $resultat -> fetch();
         ?>
         <title>Admin : <?= $ligne_utilisateur['pseudo']; ?></title>

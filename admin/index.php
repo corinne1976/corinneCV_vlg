@@ -1,7 +1,7 @@
 <?php
+session_start();// à mettre dans toutes les pages de l'Admin
 require('connexion.php');
 
-session_start();// à mettre dans toutes les pages de l'Admin
 
 if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
 
@@ -26,7 +26,7 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
 <head>
     <meta charset="utf-8">
     <?php
-    $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
+    $resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
     $ligne_utilisateur = $resultat -> fetch();
     ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

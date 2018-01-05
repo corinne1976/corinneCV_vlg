@@ -23,14 +23,14 @@ if (isset($_POST['e_titre'])) { // par le nom du premier input
     $dates = addslashes($_POST['e_dates']);
     $description = addslashes($_POST['e_description']);
 
-    $pdoCV -> exec("UPDATE t_experiences SET e_titre = '$titre', e_soustitre ='$soustitre', e_dates ='$dates', e_description ='$description' WHERE id_experience = '$id_experience'"); // SQL OK
+    $bdd -> exec("UPDATE t_experiences SET e_titre = '$titre', e_soustitre ='$soustitre', e_dates ='$dates', e_description ='$description' WHERE id_experience = '$id_experience'"); // SQL OK
     header('location: experiences.php');
     exit();
 }
 
 // je récupère la formation :
 $id_experience = $_GET['id_experience']; // par l'id et $_GET
-$resultat = $pdoCV -> query("SELECT * FROM t_experiences WHERE id_experience ='$id_experience'"); // la requête est égale à m'id
+$resultat = $bdd -> query("SELECT * FROM t_experiences WHERE id_experience ='$id_experience'"); // la requête est égale à m'id
 $ligne_experience = $resultat->fetch();
 
 ?>
@@ -40,7 +40,7 @@ $ligne_experience = $resultat->fetch();
     <head>
         <meta charset="utf-8">
         <?php
-        $resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
+        $resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
         $ligne_utilisateur = $resultat -> fetch();
         ?>
         <title>Admin : <?= $ligne_utilisateur['pseudo']; ?></title>

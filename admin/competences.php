@@ -14,7 +14,7 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
 }else {
     header('location:authentification.php');
 }
-$resultat = $pdoCV -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
+$resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
 $ligne_utilisateur = $resultat -> fetch(PDO::FETCH_ASSOC);
 
 // Gestion des contenus de la BDD compétence
@@ -24,7 +24,7 @@ if(isset($_POST['competence'])){ // Si on a posté une nouvelle compétence
     if(!empty($_POST['competence']) && !empty($_POST['c_niveau'])){ // Si compétence n'est pas vide
         $competence = addslashes($_POST['competence']);
         $c_niveau = addslashes($_POST['c_niveau']);
-        $pdoCV -> exec("INSERT INTO t_competences (id_competence, competence, c_niveau, utilisateur_id) VALUES (NULL, '$competence', '$c_niveau', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+        $bdd -> exec("INSERT INTO t_competences (id_competence, competence, c_niveau, utilisateur_id) VALUES (NULL, '$competence', '$c_niveau', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
         header("location: competences.php");
         exit();
 
@@ -36,7 +36,7 @@ if(isset($_POST['competence'])){ // Si on a posté une nouvelle compétence
 if(isset($_GET['id_competence'])){ // on récupère la compétence par son ID dans l'url
     $efface = $_GET['id_competence'];
     $resultat = " DELETE FROM t_competences WHERE id_competence = '$efface' ";
-    $pdoCV ->query($resultat);
+    $bdd ->query($resultat);
     header("location: competences.php");
 } // ferme le if isset supression
 
@@ -62,7 +62,7 @@ include('inc/nav.inc.php');
         </div>
 
         <?php
-        $resultat = $pdoCV -> prepare("SELECT * FROM t_competences WHERE utilisateur_id = '$id_utilisateur'");// requete de selection de la table t_compérences ou l'id est == a 1 donc corinne
+        $resultat = $bdd -> prepare("SELECT * FROM t_competences WHERE utilisateur_id = '$id_utilisateur'");// requete de selection de la table t_compérences ou l'id est == a 1 donc corinne
         $resultat -> execute();// execution de la requete
         $nbr_competences =  $resultat -> rowCount();
         ?>
