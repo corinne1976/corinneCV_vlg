@@ -167,7 +167,8 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
 
                 </div><!-- fin div class contact-->
                 <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12 col-md-offset-2">
-                    <i class="fa fa-mobile fa-4x" aria-hidden="true"></i><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                    <i class="fa fa-phone-square" aria-hidden="true"></i><span> 06.24.47.87.98</span><br>
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i><span>tinacorinne@yahoo.fr</span>
 
 
                 </div>
