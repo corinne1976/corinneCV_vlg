@@ -19,8 +19,7 @@ a{
 }
 a:hover{
     text-decoration: none;
-    background: -webkit-linear-gradient(left, #626060, #928B8B);
-  background: linear-gradient(to right, #626060, #928B8B);
+
 
 }
 
@@ -46,11 +45,12 @@ a:hover{
 }
 }
 
-.logo{
+#logo:hover{
     text-transform: uppercase;/*majuscule*/
     font-weight: bold;/*en gras*/
     letter-spacing: 1px;/*espace entre les lettres*/
     float: left;/*pour le mettre a gauche*/
+    color: cyan;
 
 }
 .menu{
@@ -64,7 +64,7 @@ a:hover{
 }
 
 .menu a:hover{/*décoration quand on passe sur les liens*/
-    color: #FFCEF3;
+    color: cyan;
 
 
 }
@@ -100,7 +100,7 @@ a:hover{
      background: #573727;
 }
  .btn.focus, .btn:focus, .btn:hover{
-    color: #573727; */
+    color: #573727;
 }
 #holder{
     color: #573727;

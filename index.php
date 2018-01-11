@@ -26,6 +26,8 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=" Corinne Tina Intégratrice développeuse web en recherche de stage">
+    <meta name="keywords" content="Intégrateur, développeur, html, css, php,">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title >Mon Cv</title>
     <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:300i,400,400i,500,700,900" rel="stylesheet">
@@ -50,7 +52,7 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
     <header class="container-fluid header"><!-- debut header avec bootstrap-->
         <div class="container"><!--debut div container-->
             <div class="row centrer">
-            <a href="index.php" class="logo">Corinne tina </a>
+            <a href="index.php" id="logo">Corinne tina </a>
             <nav class="menu"><!--debut nav class menu-->
                 <a href="#">Accueil</a><!--lien Acceuil-->
                 <a href="#apropos">A propos</a><!--lien a propos-->
@@ -175,7 +177,7 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
             </div><!-- fin row--><br>
             <div class="class row">
                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                    <p class="center">Copyright Tina Corinne 2017 <a href="admin/authentification.php">Admin</a></p>
+                    <p class="center">Copyright Tina Corinne <?= date('Y') ?><a href="admin/authentification.php"> Admin</a></p>
                     <p>
 
                     </p>
