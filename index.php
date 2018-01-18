@@ -1,5 +1,5 @@
 <?php
-require 'connexion.php';
+require 'admin/connexion.php';
 require 'Contact.class.php';
 
 // on vérifie que le formulaire a été poste
@@ -18,7 +18,12 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
     }
 }
 
- ?>
+$resultat = $bdd -> prepare("SELECT * FROM t_competences");// requete de selection de la table t_compérences ou l'id est == a 1 donc corinne
+$resultat -> execute();// execution de la requete
+$ligne_competences =  $resultat -> fetchAll(PDO::FETCH_ASSOC);
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -31,9 +36,9 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title >Mon Cv</title>
     <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:300i,400,400i,500,700,900" rel="stylesheet">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet"> -->
-
+    <link href="https://fonts.googleapis.com/css?family=Spectral+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -81,36 +86,19 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
             <div class="row">
                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
                     <h2><i>Compétence</i>s</h2>
-                    <h4>HTML</h4>
+                    <!-- <h4>HTML</h4> -->
+                    <?php
+                    foreach($ligne_competences as $corinne){
+                    ?>
+                    <div class="brown"> <?= $corinne['competence'] ?> </div>
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 60%;">
-                            60%
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <?= $corinne['c_niveau']; ?>%">
+                            <?= $corinne['c_niveau']; ?>
                         </div>
                     </div>
-                    <h4>CSS</h4>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 60%;">
-                            60%
-                        </div>
-                    </div>
-                    <h4>PHP</h4>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 50%;">
-                            60%
-                        </div>
-                    </div>
-                    <h4>Bootstrap</h4>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 60%;">
-                            60%
-                        </div>
-                    </div>
-                    <h4>Sql</h4>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 60%;">
-                            60%
-                        </div>
-                    </div>
+
+                <?php } ?>
+
                 </article>
                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
                     <h2><i>Parcours pro</i></h2>
@@ -150,15 +138,15 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
                     <form action="" method="POST">
                     <div class="form-group">
                         <label for="nom">Nom:</label>
-                        <input type="text" class="form-control" name="nom">
+                        <input type="text" class="form-control" name="nom" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email : </label>
-                        <input type="email" class="form-control" name="email">
+                        <input type="email" class="form-control" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="sujet">Sujet:</label>
-                        <input type="text" class="form-control" name="sujet" placeholder="Objet de votre message">
+                        <input type="text" class="form-control" name="sujet" placeholder="Objet de votre message" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Message:</label>
@@ -169,8 +157,8 @@ if (!empty($_POST)) {// on éclate le tableau avec la methode extract(), ce qui 
 
                 </div><!-- fin div class contact-->
                 <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12 col-md-offset-2">
-                    <i class="fa fa-phone-square" aria-hidden="true"></i><span> 06.24.47.87.98</span><br>
-                    <i class="fa fa-envelope-o" aria-hidden="true"></i><span>tinacorinne@yahoo.fr</span>
+                    <i class="fa fa-phone-square blanc" aria-hidden="true"></i><span class="blanc"> 06.24.47.87.98</span><br>
+                    <i class="fa fa-envelope-o blanc" aria-hidden="true"></i><span class="blanc">tinacorinne@yahoo.fr</span>
 
 
                 </div>

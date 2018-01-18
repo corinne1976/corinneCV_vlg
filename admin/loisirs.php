@@ -1,6 +1,7 @@
 <?php
-session_start();// à mettre dans toutes les pages de l'Admin
 require('connexion.php');
+
+session_start(); // demarrage de la session
 
 if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
 
@@ -12,7 +13,7 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
     // var-dump( $_SESSION);
 
 }else {
-    header('location:authentification.php');
+    header('location: authentification.php');
 }
 ?>
 
@@ -59,7 +60,7 @@ if (isset($_GET['id_loisir'])) { // on récupère la comp. par son id dans l'url
     </head>
     <body>
         <?php
-        $resultat = $pdoCV -> prepare("SELECT * FROM t_loisirs WHERE utilisateur_id ='$id_utilisateur'");
+        $resultat = $bdd -> prepare("SELECT * FROM t_loisirs WHERE utilisateur_id ='$id_utilisateur'");
         $resultat->execute();
         $nbr_loisirs = $resultat->rowCount();
         // $ligne_competence = $resultat -> fetch();
@@ -115,7 +116,7 @@ if (isset($_GET['id_loisir'])) { // on récupère la comp. par son id dans l'url
                                 <?= $msg; ?>
                                 <div class="form-group">
                                     <label for="disabledSelect">Loisir</label>
-                                    <input type="text" name="loisir" id="loisir" placeholder="Insérer un loisir" class="form-control">
+                                    <input type="text" name="loisir" id="loisir" placeholder="Insérer un loisir" class="form-control" required>
                                 </div>
 
                                 <input type="submit" class="btn btn-primary" value="Insérez">

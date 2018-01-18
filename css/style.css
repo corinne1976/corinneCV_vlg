@@ -8,24 +8,29 @@ body, html{
 
 body{
     font-family: roboto;
-    /*background-image:linear-gradient(60deg, white, black,);*/
+
 
 }
 
 a{
     text-decoration: none;
     color: white;
-    /* font-family: 'Playfair Display SC', serif; */
+    font-family: 'Baloo Paaji', cursive;
+    font-size: 1.1em;
+
 }
 a:hover{
     text-decoration: none;
 
 
 }
+a:focus, a:hover{
+    color: #BE946B;
+}
 
 .container-fluid{/*pour enlever le padding margin du container fluid qui pousse l'image de la bannière en créant un espace  */
-    padding: 0;
-    margin: 0;
+padding: 0;
+margin: 0;
 
 }
 
@@ -64,7 +69,7 @@ a:hover{
 }
 
 .menu a:hover{/*décoration quand on passe sur les liens*/
-    color: cyan;
+    color: #BE946B;
 
 
 }
@@ -83,7 +88,7 @@ a:hover{
 .ban img{
     width: 100%;
     max-width: 100%;
-     height: 600px;
+    height: 600px;
 
 }
 
@@ -97,9 +102,9 @@ a:hover{
 }
 
 .inner-banner button{
-     background: #573727;
+    background: #573727;
 }
- .btn.focus, .btn:focus, .btn:hover{
+.btn.focus, .btn:focus, .btn:hover{
     color: #573727;
 }
 #holder{
@@ -113,8 +118,8 @@ a:hover{
 /*apropos*/
 
 .vert{
-color: #4E5B23;
-font-size: 10px;
+    color: #4E5B23;
+    font-size: 10px;
 
 }
 
@@ -123,6 +128,7 @@ h2{
     /* color: -webkit-linear-gradient(left, black, #52524E, black); */
     color: #573727;
     font-size: 23px;
+    font-family: 'Spectral SC', serif;
 }
 
 h3{
@@ -132,7 +138,7 @@ h3{
     /* text-decoration: underline; */
     color: #573727;
     font-size: 29px;
-    font-family: Lobster;
+    font-family: 'Merienda', cursive;
 
 }
 .roboto{
@@ -149,13 +155,13 @@ h4{
     padding-bottom: 76px;
 }
 /*.item-realisations img {
-    /*position: relative;
-  overflow: hidden;*/
-    /*-webkit-transform: rotate(30deg);
-    transform: rotate(30deg);*/
-    /*z-index:1;
-	height:150px;
-	box-shadow: 0 0 3px black;*/
+/*position: relative;
+overflow: hidden;*/
+/*-webkit-transform: rotate(30deg);
+transform: rotate(30deg);*/
+/*z-index:1;
+height:150px;
+box-shadow: 0 0 3px black;*/
 
 .item-realisations img:hover{
     transform: scale(1.1);
@@ -167,32 +173,32 @@ h4{
 /*footer reseaux sociaux*/
 .btn {
     color: #2A180A;
-  background-color:#BE946B;
-  display: inline-block;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-  transition: 0.2s;
+    background-color:#BE946B;
+    display: inline-block;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    transition: 0.2s;
 }
 
 .btn:hover{
-  background-color: #BE946B;
+    background-color: #BE946B;
 
-  color: white;
-  xtext-shadow: 1px 1px 1px rgba(98,158,218, 20);
-  box-shadow: 1px 1px1px;
-  xletter-spacing: 0.2px;
+    color: white;
+    xtext-shadow: 1px 1px 1px rgba(98,158,218, 20);
+    box-shadow: 1px 1px1px;
+    xletter-spacing: 0.2px;
 }
 
 .btn-custom{
-      background-color: #BE946B;
+    background-color: #BE946B;
 }
 
 .inner-banner button{
-     background-color: #BE946B;
+    background-color: #BE946B;
 }
 
- .progress-bar{
+.progress-bar{
     background-color: #4E5B23;
- }
+}
 
 .footer{
     background:#4E5B23;
@@ -203,14 +209,14 @@ h4{
 }
 
 .fa{
-     font-size:30px;
-     margin:5px;
+    font-size:30px;
+    margin:5px;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
 }
 .fa:hover{
-  font-size: 40px;
-  transform: rotate(45deg);
+    font-size: 40px;
+    transform: rotate(45deg);
 }
 .fa-4x{
     font-size: 4em;
@@ -225,12 +231,12 @@ label{
     color: white;
 }
 /* .hi-icon a {
-	display:block;
-	width:100%;
-	height:100%;
-	position:absolute;
-	top:0px;
-	z-index:100
+display:block;
+width:100%;
+height:100%;
+position:absolute;
+top:0px;
+z-index:100
 } */
 #contact{
     color:#2A180A;
@@ -240,4 +246,16 @@ label{
     text-align: left;
     color: grey;
     background: white;
+}
+
+.brown{
+    color: #573727;
+}
+
+.form-control{
+    background-color: white;
+}
+
+.blanc{
+    color: white;
 }

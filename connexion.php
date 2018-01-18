@@ -6,10 +6,10 @@
 */
 //on créé une nouvelle connexion dans un bloc TRY
 
-$hote='localhost';// chemin vers le serveur
-$bdd='sitecv';// le nom de la base de données
-$utilisateur='root';// le nom de l'utilisateur pour se donnecter
-$passe='';// le mot de passe de l'utilisateur local pc
+$hote='db715954295.db.1and1.com';// chemin vers le serveur
+$bdd='db715954295';// le nom de la base de données
+$utilisateur='dbo715954295';// le nom de l'utilisateur pour se donnecter
+$passe='siadia2017';// le mot de passe de l'utilisateur local pc
 
 try {
   $bdd = new pdo ('mysql:host='.$hote.';dbname='.$bdd, $utilisateur, $passe) or die(print_r($bdd->errorInfo()));

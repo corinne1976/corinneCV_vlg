@@ -1,5 +1,5 @@
 <?php
-
+// session_start(); // à mettre dans toutes les pages de l'Admin
 /*
 * connexion.php
 * connexion à la BDD
@@ -17,3 +17,7 @@ try {
 } catch (Exception $e) {
   die('Erreur : ' . $e->getMessage());
 }
+
+// echo '<pre>';
+// print_r($_SESSION);
+// echo '</pre>';

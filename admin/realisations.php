@@ -1,9 +1,9 @@
 <?php
-session_start();// à mettre dans toutes les pages de l'Admin
 require('connexion.php');
 
-if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
+session_start(); // demarrage de la session
 
+if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
     $id_utilisateur = $_SESSION['id_utilisateur'];
     $prenom = $_SESSION['prenom'];
     $nom = $_SESSION['nom'];
@@ -12,9 +12,8 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
     // var-dump( $_SESSION);
 
 }else {
-    header('location:authentification.php');
+    header('location: authentification.php');
 }
-
 ?>
 
 <?php
@@ -131,22 +130,22 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
                                 <?= $msg; ?>
                                 <div class="form-group">
                                     <label for="disabledSelect">Titre</label>
-                                    <input type="text" name="r_titre" id="r_titre" placeholder="Insérer un titre" class="form-control">
+                                    <input type="text" name="r_titre" id="r_titre" placeholder="Insérer un titre" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="disabledSelect">Soustitre</label>
-                                    <input type="text" name="r_soustitre" id="r_soustitre" placeholder="Insérer un soustitre" class="form-control">
+                                    <input type="text" name="r_soustitre" id="r_soustitre" placeholder="Insérer un soustitre" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="disabledSelect">Dates</label>
-                                    <input type="text" name="r_dates" id="r_dates" placeholder="Insérer une date" class="form-control">
+                                    <input type="text" name="r_dates" id="r_dates" placeholder="Insérer une date" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="disabledSelect">Description</label>
-                                    <textarea name="r_description" id="editor1" class="form-control" placeholder="Insérer une description"></textarea>
+                                    <textarea name="r_description" id="editor1" class="form-control" placeholder="Insérer une description" required></textarea>
                                 </div>
                                 <script>CKEDITOR.replace('editor1');</script>
 

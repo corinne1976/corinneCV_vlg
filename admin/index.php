@@ -1,7 +1,8 @@
 <?php
-session_start();// à mettre dans toutes les pages de l'Admin
+
 require('connexion.php');
 
+session_start(); // demarrage de la session
 
 if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
 
@@ -9,14 +10,12 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
     $prenom = $_SESSION['prenom'];
     $nom = $_SESSION['nom'];
 
-    // echo $_SESSION['connexion'];
-    // var-dump( $_SESSION);
+     // echo $_SESSION['connexion'];
+     // var_dump($_SESSION);
 
 }else {
-    header('location:authentification.php');
+    header('location: authentification.php');
 }
-
-
 
 
 ?>

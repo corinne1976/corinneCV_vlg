@@ -1,6 +1,8 @@
 <?php
-session_start();// à mettre dans toutes les pages de l'Admin
+
 require('connexion.php');
+
+session_start(); // demarrage de la session
 
 if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
 
@@ -17,7 +19,7 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
 ?>
 
 <?php
-$msg = '';
+// $msg = '';
 
 // gestion des contenus de la BDD compétences
 
@@ -33,9 +35,9 @@ if (isset($_POST['e_titre'])) { // Si on a posté une nouvelle form.
       header("location: experiences.php");
       exit();
     }
-    else {
-        $msg .= '<p style="background:#6A0000; color:white; width:72%">Veuillez renseigner les champs !</p>';
-    }
+    // else {
+    //     $msg .= '<p style="background:#6A0000; color:white; width:72%">Veuillez renseigner les champs !</p>';
+    // }
 } // ferme le if(isset) du form
 
 // Suppression d'un loisir
@@ -55,7 +57,7 @@ if (isset($_GET['id_experience'])) { // on récupère la comp. par son id dans l
     <head>
         <meta charset="utf-8">
         <?php
-        $resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
+        $resultat = $bdd->query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
         $ligne_utilisateur = $resultat -> fetch();
         ?>
         <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
@@ -69,7 +71,7 @@ if (isset($_GET['id_experience'])) { // on récupère la comp. par son id dans l
     </head>
     <body>
         <?php
-        $resultat = $bdd -> prepare("SELECT * FROM t_experiences WHERE utilisateur_id ='$id_utilisateur'");
+        $resultat = $bdd->prepare("SELECT * FROM t_experiences WHERE utilisateur_id ='$id_utilisateur'");
         $resultat->execute();
         $nbr_experience = $resultat->rowCount();
 
@@ -128,24 +130,24 @@ if (isset($_GET['id_experience'])) { // on récupère la comp. par son id dans l
                     </div>
                         <form action="experiences.php" method="post">
                             <fieldset>
-                                <?= $msg; ?>
+
                                 <div class="form-group">
-                                    <label for="disabledSelect">Titre</label>
-                                    <input type="text" name="e_titre" id="e_titre" placeholder="Insérer un titre" class="form-control">
+                                    <label for="e_titre">Titre</label>
+                                    <input type="text" name="e_titre" id="e_titre" placeholder="Insérer un titre" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="disabledSelect">Soustitre</label>
-                                    <input type="text" name="e_soustitre" id="e_soustitre" placeholder="Insérer un soustitre" class="form-control">
+                                    <label for="e_soustitre">Soustitre</label>
+                                    <input type="text" name="e_soustitre" id="e_soustitre" placeholder="Insérer un soustitre" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="disabledSelect">Dates</label>
-                                    <input type="text" name="e_dates" id="e_dates" placeholder="Insérer une date" class="form-control">
+                                    <label for="e_dates">Dates</label>
+                                    <input type="text" name="e_dates" id="e_dates" placeholder="Insérer une date" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="disabledSelect">Description</label>
+                                    <label for="e_description">Description</label>
                                     <textarea name="e_description" id="e_description" class="form-control" placeholder="Insérer une description"></textarea>
                                 </div>
 

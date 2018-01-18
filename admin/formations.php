@@ -1,6 +1,7 @@
 <?php
-session_start();// à mettre dans toutes les pages de l'Admin
 require('connexion.php');
+
+session_start(); // demarrage de la session
 
 if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
 
@@ -129,17 +130,17 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
                                 <?= $msg; ?>
                                 <div class="form-group">
                                     <label for="disabledSelect">Titre</label>
-                                    <input type="text" name="f_titre" id="f_titre" placeholder="Insérer un titre" class="form-control">
+                                    <input type="text" name="f_titre" id="f_titre" placeholder="Insérer un titre" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="disabledSelect">Soustitre</label>
-                                    <input type="text" name="f_soustitre" id="f_soustitre" placeholder="Insérer un soustitre" class="form-control">
+                                    <input type="text" name="f_soustitre" id="f_soustitre" placeholder="Insérer un soustitre" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="disabledSelect">Dates</label>
-                                    <input type="text" name="f_dates" id="f_dates" placeholder="Insérer une date" class="form-control">
+                                    <input type="text" name="f_dates" id="f_dates" placeholder="Insérer une date" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">

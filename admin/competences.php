@@ -1,5 +1,6 @@
 <?php
-session_start();// à mettre dans toutes les pages de l'Admin
+session_start(); // demarrage de la session
+
 require('connexion.php');
 
 if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
@@ -128,11 +129,11 @@ include('inc/nav.inc.php');
                                             <form action="competences.php" method="post">
                                                 <div class="form-group">
                                                     <label for="competence"> Compétence :</label><br>
-                                                    <input type="text" name="competence" id="competence" placeholder="Insérez votre compétence" class="form-control">
+                                                    <input type="text" name="competence" id="competence" placeholder="Insérez votre compétence" class="form-control" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="niveau"> Niveau :</label><br>
-                                                    <input type="text" name="c_niveau" id="niveau" placeholder="Insérez votre niveau" class="form-control">
+                                                    <input type="text" name="c_niveau" id="niveau" placeholder="Insérez votre niveau" class="form-control" required>
                                                 </div>
                                                 <button type="submit" class="btn btn-info btn-block">Inscrire</button>
                                             </form>

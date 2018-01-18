@@ -1,6 +1,8 @@
 <?php
 require('connexion.php');
-session_start();// à mettre dans toutes les pages de l'Admin
+
+session_start(); // demarrage de la session
+
 if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
 
     $id_utilisateur = $_SESSION['id_utilisateur'];

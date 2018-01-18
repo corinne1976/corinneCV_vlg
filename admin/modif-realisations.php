@@ -1,6 +1,7 @@
 <?php
-session_start();// à mettre dans toutes les pages de l'Admin
 require('connexion.php');
+
+session_start(); // demarrage de la session
 
 if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
 
@@ -27,7 +28,7 @@ if (isset($_POST['r_titre'])) { // par le nom du premier input
 }
 // je récupère la formation :
 $id_realisation = $_GET['id_realisation']; // par l'id et $_GET
-$resultat = $bdd -> query("SELECT * FROM t_realisations WHERE id_realisation ='$id_realisation'"); // la requête est égale à m'id
+$resultat = $bdd -> query("SELECT * FROM t_realisations WHERE id_realisation ='$id_realisation'"); // la requête est égale à 'id
 $ligne_realisation = $resultat->fetch();
 ?>
 
