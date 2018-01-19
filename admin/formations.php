@@ -23,8 +23,8 @@ $msg = '';
 // gestion des contenus de la BDD compétences
 
 //insertion d'une formation
-if (isset($_POST['f_titre'])) { // Si on a posté une nouvelle form.
-    if ($_POST['f_titre']!='' && $_POST['f_soustitre']!='' && $_POST['f_dates']!='' && $_POST['f_description']!='') {
+if (isset($_POST['f_titre'])){ // Si on a posté une nouvelle form.
+    if (!empty($_POST['f_titre'])&& !empty($_POST['f_soustitre'])&& !empty($_POST['f_dates'])&& !empty($_POST['f_description'])) {
       $f_titre = addslashes($_POST['f_titre']);
       $f_soustitre = addslashes($_POST['f_soustitre']);
       $f_dates = addslashes($_POST['f_dates']);

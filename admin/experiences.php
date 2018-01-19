@@ -16,16 +16,17 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
 }else {
     header('location:authentification.php');
 }
-?>
+$resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
+$ligne_utilisateur = $resultat -> fetch(PDO::FETCH_ASSOC);
 
-<?php
+
 // $msg = '';
 
 // gestion des contenus de la BDD compétences
 
 //insertion d'une formation
 if (isset($_POST['e_titre'])) { // Si on a posté une nouvelle form.
-    if ($_POST['e_titre']!='' && $_POST['e_soustitre']!='' && $_POST['e_dates']!='' && $_POST['e_description']!='') {
+    if (!empty($_POST['e_titre'])&& !empty($_POST['e_soustitre'])&& !empty($_POST['e_dates'])&& !empty($_POST['e_description'])) {
       $e_titre = addslashes($_POST['e_titre']);
       $e_soustitre = addslashes($_POST['e_soustitre']);
       $e_dates = addslashes($_POST['e_dates']);

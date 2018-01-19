@@ -60,7 +60,7 @@ $ligne_competences =  $resultat -> fetchAll(PDO::FETCH_ASSOC);
             <a href="index.php" id="logo">Corinne tina </a>
             <nav class="menu"><!--debut nav class menu-->
                 <a href="#">Accueil</a><!--lien Acceuil-->
-                <a href="#apropos">A propos</a><!--lien a propos-->
+                <a href="#apropos">À propos</a><!--lien a propos-->
                 <a href="#realisations">Réalisations</a><!--lien réalisations-->
                 <a href="#contact">Contact</a><!--lien contact vers le footer-->
             </div>
@@ -82,7 +82,7 @@ $ligne_competences =  $resultat -> fetchAll(PDO::FETCH_ASSOC);
     <section class="container-fluid  jumbotron apropos"><!-- debut apropos bootstrap  avec le container fluid les articles seront collés-->
         <div class="container jumbotron">
 
-            <h3 id="apropos">A Propos</h3>
+            <h3 id="apropos">À Propos</h3>
             <div class="row">
                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><!-- les articles vont s'aligner sur 3 colonnes et en petit (xs)et moyen (sm) ecran en full screen .-->
                     <h2><i>Compétence</i>s</h2>
@@ -156,7 +156,7 @@ $ligne_competences =  $resultat -> fetchAll(PDO::FETCH_ASSOC);
                 </form>
 
                 </div><!-- fin div class contact-->
-                <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12 col-md-offset-2">
+                <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12 col-md-offset-2 top">
                     <i class="fa fa-phone-square blanc" aria-hidden="true"></i><span class="blanc"> 06.24.47.87.98</span><br>
                     <i class="fa fa-envelope-o blanc" aria-hidden="true"></i><span class="blanc">tinacorinne@yahoo.fr</span>
 

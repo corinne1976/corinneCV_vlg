@@ -1,7 +1,7 @@
 <?php
+session_start(); // demarrage de la session
 require('connexion.php');
 
-session_start(); // demarrage de la session
 
 if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
     $id_utilisateur = $_SESSION['id_utilisateur'];
@@ -14,10 +14,11 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
 }else {
     header('location: authentification.php');
 }
+
 ?>
 
 <?php
-$msg = '';
+//$msg = '';
 
 // gestion des contenus de la BDD compétences
 
@@ -28,15 +29,15 @@ if (isset($_POST['r_titre'])) { // Si on a posté une nouvelle form.
       $r_soustitre = addslashes($_POST['r_soustitre']);
       $r_dates = addslashes($_POST['r_dates']);
       $r_description = addslashes($_POST['r_description']);
-
-     $bdd -> exec("INSERT INTO t_realisations VALUES (NULL, '$r_titre', '$r_soustitre', '$r_dates', '$r_description', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+      $bdd -> exec("INSERT INTO t_realisations VALUES (NULL, '$r_titre', '$r_soustitre', '$r_dates', '$r_description', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
       header("location: realisations.php");
       exit();
     }
-    else {
-        $msg .= '<p style="background:#6A0000 ; color:white; width:72%">Veuillez renseigner les champs !</p>';
-    }
 } // ferme le if(isset) du form
+    // else {
+    //     $msg .= '<p style="background:#6A0000 ; color:white; width:72%">Veuillez renseigner les champs !</p>';
+    // }
+// ferme le if(isset) du form
 
 // Suppression d'un loisir
 if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans l'url
@@ -127,7 +128,7 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
                     </div>
                         <form action="realisations.php" method="post">
                             <fieldset>
-                                <?= $msg; ?>
+
                                 <div class="form-group">
                                     <label for="disabledSelect">Titre</label>
                                     <input type="text" name="r_titre" id="r_titre" placeholder="Insérer un titre" class="form-control" required>

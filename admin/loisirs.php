@@ -2,7 +2,7 @@
 require('connexion.php');
 
 session_start(); // demarrage de la session
-
+print_r($_SESSION);
 if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
 
     $id_utilisateur = $_SESSION['id_utilisateur'];
@@ -34,9 +34,9 @@ if (isset($_POST['loisir'])) { // Si on a posté une nouvelle comp.
 } // ferme le if(isset) du form
 // Suppression d'un loisir
 if (isset($_GET['id_loisir'])) { // on récupère la comp. par son id dans l'url
-    $efface =  $_GET['id_loisir'];
+    $efface = $_GET['id_loisir'];
     $resultat = "DELETE FROM t_loisirs WHERE id_loisir = '$efface'";
-    $bdd -> query($resultat); // on peut avec exec aussi si on veut
+    $bdd->query($resultat); // on peut avec exec aussi si on veut
     header("location: loisirs.php"); // pour revenir sur la page
 } // ferme le if(isset)
 ?>

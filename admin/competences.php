@@ -15,14 +15,13 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
 }else {
     header('location:authentification.php');
 }
-$resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
-$ligne_utilisateur = $resultat -> fetch(PDO::FETCH_ASSOC);
+
 
 // Gestion des contenus de la BDD compétence
 
 // Insertion d'une compétence
 if(isset($_POST['competence'])){ // Si on a posté une nouvelle compétence
-    if(!empty($_POST['competence']) && !empty($_POST['c_niveau'])){ // Si compétence n'est pas vide
+    if(!empty($_POST['competence'])&& !empty($_POST['c_niveau'])){ // Si compétence n'est pas vide
         $competence = addslashes($_POST['competence']);
         $c_niveau = addslashes($_POST['c_niveau']);
         $bdd -> exec("INSERT INTO t_competences (id_competence, competence, c_niveau, utilisateur_id) VALUES (NULL, '$competence', '$c_niveau', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
@@ -41,8 +40,6 @@ if(isset($_GET['id_competence'])){ // on récupère la compétence par son ID da
     header("location: competences.php");
 } // ferme le if isset supression
 
-include('inc/header.inc.php');
-include('inc/nav.inc.php');
 ?>
 
 <!DOCTYPE html>
