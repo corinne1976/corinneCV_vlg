@@ -10,7 +10,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php"><?= $ligne_utilisateur['pseudo']?></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,5 +40,5 @@
                     </ul>
                 </ul>
                 </div><!-- /.container-fluid -->
-
-            </nav>
+            </div>
+        </nav>

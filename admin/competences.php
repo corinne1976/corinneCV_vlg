@@ -1,44 +1,44 @@
 <?php
-session_start(); // demarrage de la session
+    session_start(); // demarrage de la session
 
-require('connexion.php');
+    require('connexion.php');
 
-if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
+    if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// on établie que la variable de $_session est passée contient bien le terme "connexion"
 
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
+        $id_utilisateur = $_SESSION['id_utilisateur'];
+        $prenom = $_SESSION['prenom'];
+        $nom = $_SESSION['nom'];
 
-    // echo $_SESSION['connexion'];
-    // var-dump( $_SESSION);
+        // echo $_SESSION['connexion'];
+        // var-dump( $_SESSION);
 
-}else {
-    header('location:authentification.php');
-}
+    }else {
+        header('location:authentification.php');
+    }
 
 
-// Gestion des contenus de la BDD compétence
+    // Gestion des contenus de la BDD compétence
 
-// Insertion d'une compétence
-if(isset($_POST['competence'])){ // Si on a posté une nouvelle compétence
-    if(!empty($_POST['competence'])&& !empty($_POST['c_niveau'])){ // Si compétence n'est pas vide
-        $competence = addslashes($_POST['competence']);
-        $c_niveau = addslashes($_POST['c_niveau']);
-        $bdd -> exec("INSERT INTO t_competences (id_competence, competence, c_niveau, utilisateur_id) VALUES (NULL, '$competence', '$c_niveau', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+    // Insertion d'une compétence
+    if(isset($_POST['competence'])){ // Si on a posté une nouvelle compétence
+        if(!empty($_POST['competence'])&& !empty($_POST['c_niveau'])){ // Si compétence n'est pas vide
+            $competence = addslashes($_POST['competence']);
+            $c_niveau = addslashes($_POST['c_niveau']);
+            $bdd -> exec("INSERT INTO t_competences (id_competence, competence, c_niveau, utilisateur_id) VALUES (NULL, '$competence', '$c_niveau', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+            header("location: competences.php");
+            exit();
+
+        }// ferme if n'est pas vide
+
+    } // ferme le if isset insertion
+
+    // Supression d'une compétence
+    if(isset($_GET['id_competence'])){ // on récupère la compétence par son ID dans l'url
+        $efface = $_GET['id_competence'];
+         $resultat = " DELETE FROM t_competences WHERE id_competence = '$efface' ";
+         $bdd ->query($resultat);
         header("location: competences.php");
-        exit();
-
-    }// ferme if n'est pas vide
-
-} // ferme le if isset insertion
-
-// Supression d'une compétence
-if(isset($_GET['id_competence'])){ // on récupère la compétence par son ID dans l'url
-    $efface = $_GET['id_competence'];
-    $resultat = " DELETE FROM t_competences WHERE id_competence = '$efface' ";
-    $bdd ->query($resultat);
-    header("location: competences.php");
-} // ferme le if isset supression
+    } // ferme le if isset supression
 
 ?>
 
@@ -46,24 +46,48 @@ if(isset($_GET['id_competence'])){ // on récupère la compétence par son ID da
 <html lang="fr">
 <head>
     <head>
+        <?php
+        $resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
+        $ligne_utilisateur = $resultat -> fetch();
+        ?>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Admin : <?= $ligne_utilisateur['pseudo']?> </title>
+        <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
+        <!-- ck ckeditor -->
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style_admin.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
+        <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+
     </head>
 </head>
 <body>
 
+    <?php  include('inc/header.inc.php');
+    include('inc/nav.inc.php');?>
+
     <div class="container"><!-- debut du container bootrap-->
-        <div class="page-header well"><!-- encadrement du tableau-->
-            <h1>Admin <?= $ligne_utilisateur['prenom']?></h1><!-- insertion de mon preénom en php-->
-        </div>
 
         <?php
-        $resultat = $bdd -> prepare("SELECT * FROM t_competences WHERE utilisateur_id = '$id_utilisateur'");// requete de selection de la table t_compérences ou l'id est == a 1 donc corinne
-        $resultat -> execute();// execution de la requete
-        $nbr_competences =  $resultat -> rowCount();
+        $resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '1'");
+        $ligne_utilisateur = $resultat -> fetch();
+            // $ligne_competence = $resultat -> fetch();
         ?>
+        <div class="page-header well"><!-- encadrement du tableau-->
+        <h1>Admin <?= $ligne_utilisateur['prenom']?></h1><!-- insertion de mon preénom en php-->
+        </div>
+        <?php
+        $resultat = $bdd -> prepare("SELECT * FROM t_competences WHERE utilisateur_id ='1'");
+        $resultat->execute();
+        $nbr_competences = $resultat->rowCount();
+
+
+?>
         <!-- Fil d'ariane -->
         <ol class="breadcrumb">
             <li><a href="index.php">Accueil</a></li>
