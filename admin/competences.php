@@ -165,9 +165,9 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- fin du container >
+                </div>
 
-</body>
+<body>
 </html>
 
         <?php include('inc/footer.inc.php'); ?>

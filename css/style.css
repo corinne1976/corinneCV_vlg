@@ -60,6 +60,7 @@ margin: 0;
 }
 .menu{
     float: right;/*pour le mettre a droite*/
+    font-size: 12px;
 }
 
 .menu a{

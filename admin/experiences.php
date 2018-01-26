@@ -18,6 +18,7 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
 }
 $resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
 $ligne_utilisateur = $resultat -> fetch(PDO::FETCH_ASSOC);
+// var_dump($ligne_utilisateur);
 
 
 // $msg = '';
@@ -49,6 +50,7 @@ if (isset($_GET['id_experience'])) { // on récupère la comp. par son id dans l
     $bdd -> query($resultat); // on peut avec exec aussi si on veut
     header("location: experiences.php"); // pour revenir sur la page
 
+
 } // ferme le if(isset)
 
 ?>
@@ -60,6 +62,8 @@ if (isset($_GET['id_experience'])) { // on récupère la comp. par son id dans l
         <?php
         $resultat = $bdd->query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
         $ligne_utilisateur = $resultat -> fetch();
+
+
         ?>
         <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
 
@@ -75,6 +79,7 @@ if (isset($_GET['id_experience'])) { // on récupère la comp. par son id dans l
         $resultat = $bdd->prepare("SELECT * FROM t_experiences WHERE utilisateur_id ='$id_utilisateur'");
         $resultat->execute();
         $nbr_experience = $resultat->rowCount();
+            // var_dump($nbr_experience);
 
         // $ligne_competence = $resultat -> fetch();
 ?>

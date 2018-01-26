@@ -68,15 +68,14 @@ $ligne_competences =  $resultat -> fetchAll(PDO::FETCH_ASSOC);
         </div><!-- fin div container -->
     </header><!-- fin  header-->
     <section class="container-fluid banner"> <!-- debut banniere-->
-        <div class="ban">
-        </div>
         <div class="inner-banner">
             <h1 id="holder"></h1>
             <a href="https://www.facebook.com/corinne.tina.5"><i class="fa fa-facebook-official vert fa-lg" aria-hidden="true"></i></a>
             <a href="https://twitter.com/corinnetina76"><i class="fa fa-twitter vert fa-lg" aria-hidden="true"></i></a>
             <a href="https://github.com/corinne1976/corinneCV_vlg"><i class="fa fa-github vert fa-lg" aria-hidden="true"></i></a>
             <a href="https://www.linkedin.com/in/corinne-tina-8609a6146/"><i class="fa fa-linkedin vert fa-lg" aria-hidden="true"></i></a><br>
-            <button class="btn btn-custom vert fa-lg">Contactez-moi</i></button>
+            <a href="#contact"><button class="btn btn-custom vert fa-lg">Contactez-moi</i></button></a>
+
         </div>
     </section><!-- fin banniere-->
     <section class="container-fluid  jumbotron apropos"><!-- debut apropos bootstrap  avec le container fluid les articles seront collés-->
@@ -135,7 +134,7 @@ $ligne_competences =  $resultat -> fetchAll(PDO::FETCH_ASSOC);
             <h3 id="contact">Contact</h3>
             <div class="row"><!-- debut row-->
                 <div class=" col-md-6 col-lg-6 col-xs-12 col-sm-12 contact"><!-- debut div class contact-->
-                    <form action="" method="POST">
+                    <form action="#" method="POST">
                     <div class="form-group">
                         <label for="nom">Nom:</label>
                         <input type="text" class="form-control" name="nom" required>

@@ -1,5 +1,4 @@
 <?php
-
 require('connexion.php');
 
 session_start(); // demarrage de la session
@@ -17,7 +16,6 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
     header('location: authentification.php');
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +25,7 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
     <?php
     $resultat = $bdd -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'");
     $ligne_utilisateur = $resultat -> fetch();
+    // var_dump($ligne_utilisateur);
     ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,8 +54,10 @@ if (isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté') {// 
 
     </div>
     <img src="img/paysage4.jpg" class="img-circle col-xs-10 col-sm-6 col-md-offset-3 col-sm-offset-1" alt="Cinque Terre" width="100%" height="500">
-</div>
 
+</div>
+<div class="container">
+    <?php include('inc/footer.inc.php'); ?>
+</div>
 </body>
 </html>
-<?php include('inc/footer.inc.php'); ?>

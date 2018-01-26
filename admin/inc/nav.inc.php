@@ -24,6 +24,7 @@
                             <li><a href="formations.php">Formations</a></li>
                             <li><a href="competences.php">Compétences</a></li>
                             <li><a href="loisirs.php">Loisirs</a></li>
+                            <li><a href="commentaires.php">Commentaires</a></li>
                         </ul>
                     </li>
 
